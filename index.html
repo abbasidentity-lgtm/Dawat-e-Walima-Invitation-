@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Walima Invitation · دعوتِ ولیمہ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--em1:#2a0510;--em2:#5c1022;--em3:#86182e;--gold:#e2b857;--gold2:#f6e3a1;--night:#1d0509;--night2:#5a1020;--ivory:#fbf3df;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--em1);scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;color:var(--ivory);font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.25rem,4vw,1.55rem);overflow-x:hidden}
+.en{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.02em}
+.ur{font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq','Noto Naskh Arabic',serif;direction:rtl;line-height:2.2}
+.ar{font-family:Amiri,'Noto Naskh Arabic',serif;direction:rtl;line-height:2}
+.gold{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes shine{to{background-position:-200% 0}}
+p,h1,h2,h3{margin:0}
+
+/* PAGE 1: one fixed background, many scrolling scenes */
+.p1{position:relative}
+.bg{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;z-index:0;background:radial-gradient(ellipse at 50% 15%,var(--em3) 0,var(--em2) 38%,var(--em1) 85%)}
+.bg::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,transparent 35%,rgba(22,1,6,.78) 100%)}
+.dust{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
+.dust i{position:absolute;bottom:-20px;background:linear-gradient(135deg,#fff7d6,var(--gold));clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translate3d(0,0,0) scale(.3) rotate(0);opacity:0}12%{opacity:.9;transform:translate3d(4px,-12vh,0) scale(1) rotate(30deg)}50%{opacity:.5;transform:translate3d(-14px,-55vh,0) scale(.7) rotate(120deg)}100%{transform:translate3d(20px,-110vh,0) scale(.4) rotate(220deg);opacity:0}}
+.scene{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12vh 7vw;gap:.5rem}
+.scene>*{max-width:34rem}
+.reveal{opacity:0;transform:translate3d(0,26px,0);transition:opacity 1s ease-out,transform 1s cubic-bezier(.22,.8,.3,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+.orn{width:min(55vw,240px);height:1px;margin:1.1rem auto;background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}
+.orn::after{content:"";position:absolute;left:50%;top:-4px;width:8px;height:8px;background:var(--gold);transform:translateX(-50%) rotate(45deg)}
+.moon{width:clamp(80px,22vw,120px);filter:drop-shadow(0 0 18px rgba(226,184,87,.55));animation:sway 6s ease-in-out infinite;transform-origin:50% 0}
+@keyframes sway{50%{transform:rotate(5deg)}}
+.bism{font-size:clamp(1.6rem,6vw,2.3rem);color:var(--gold2)}
+.title{font-size:clamp(4rem,19vw,8rem);line-height:1;font-weight:600;letter-spacing:.04em}
+.title-ur{font-size:clamp(1.8rem,7vw,2.6rem)}
+.sub{font-style:italic}
+.names{font-size:clamp(2.6rem,12vw,4.6rem);line-height:1.1;font-weight:600}
+.names-ur{font-size:clamp(1.8rem,7.5vw,2.8rem)}
+.amp{font-size:1.6rem;color:var(--gold);font-style:italic;margin:.2rem 0}
+.hint{margin-top:2.5rem;font-size:1.1rem;opacity:.95}
+.arrow{display:block;margin:.6rem auto 0;width:14px;height:14px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(8px) rotate(45deg)}}
+
+/* ENVELOPE INTRO */
+body.lock{overflow:hidden;height:100vh;height:100svh}
+@supports not (height: 100svh){.bg{height:100vh;margin-bottom:-100vh}.scene{min-height:100vh}}
+#env{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:none;background:radial-gradient(ellipse at 25% 8%,#eef2fa 0,transparent 55%),radial-gradient(ellipse at 85% 75%,#aeb9d2 0,transparent 60%),linear-gradient(160deg,#c6d0e3,#9fabc8 48%,#cdd6e7);transition:opacity 1.1s ease-in-out .15s;will-change:opacity}
+#env::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(105deg,rgba(255,255,255,.16) 0 3px,transparent 3px 46px),repeating-linear-gradient(75deg,rgba(80,95,140,.07) 0 5px,transparent 5px 60px)}
+#env.go{opacity:0;pointer-events:none}
+.sp{position:absolute;inset:0;overflow:hidden}
+.sp i{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,255,255,.9);opacity:0;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.95;transform:scale(1.4)}}
+.ev{position:relative;width:min(88vw,420px);aspect-ratio:400/480;perspective:1300px;transition:transform 1.3s cubic-bezier(.4,0,.2,1)}
+#env.go .ev{transform:scale(1.45)}
+.ins{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#faf6f0 0,#e4dde0 55%,#bfc0d2 100%),repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 9px,rgba(170,176,205,.3) 9px 24px);background-blend-mode:multiply}
+.ins::before{content:"";position:absolute;left:0;right:0;top:0;height:34%;background:linear-gradient(#ecd5cb,#f6ece6);border-radius:0 0 50% 50%/0 0 70% 70%;opacity:.9}
+.pk,.ff svg,.fb svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pk{filter:drop-shadow(0 8px 14px rgba(50,60,100,.35))}
+.fl{position:absolute;left:0;top:0;width:100%;height:68.75%;transform-origin:50% 0;transform-style:preserve-3d;transition:transform 1.3s cubic-bezier(.45,.05,.25,1)}
+#env.open .fl{transform:rotateX(180deg)}
+.ff,.fb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.fb{transform:rotateX(180deg)}
+.tap{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.45}}
+.by{position:absolute;left:50%;transform:translateX(-50%);bottom:2.4%;margin:0;z-index:3;font-family:'Great Vibes','Allura',cursive;font-size:clamp(1.05rem,5.2vw,1.55rem);line-height:1;white-space:nowrap;color:#43588a;text-shadow:0 1px 0 rgba(255,255,255,.7)}
+
+/* MEHRAB + LAMPS (scrolls away with the page) */
+.s1{padding-top:calc(min(100vw,640px)*.52 + 3vh)}
+.scene>.mh{max-width:640px}
+.mh{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(100%,640px);aspect-ratio:400/440;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(#000 68%,transparent);mask-image:linear-gradient(#000 68%,transparent)}
+.mh svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mh .d{stroke-dasharray:1;stroke-dashoffset:1}
+.mh.on .d{animation:draw 2.4s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.mh .f{opacity:0;transition:opacity 1.6s ease 1s}
+.mh.on .f{opacity:.9}
+.lamps{opacity:0;transition:opacity 1.4s ease 1.2s}
+.mh.on .lamps{opacity:1}
+.lgs{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease 1.4s}
+.mh.on .lgs{opacity:1}
+.lg{position:absolute;left:var(--x);top:var(--y);width:var(--w);aspect-ratio:1;margin:calc(var(--w) / -2) 0 0 calc(var(--w) / -2);border-radius:50%;background:radial-gradient(circle,rgba(255,214,110,.8) 0,rgba(255,190,70,.34) 30%,transparent 62%);animation:lglow 3.6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes lglow{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.18)}}
+
+/* PERSISTENT GOLDEN GLOW + SPARKLES (fixed, stays while scrolling) */
+.amb{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.gb{position:absolute;width:90vmax;height:90vmax;left:-30vmax;top:-48vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,200,90,.17),rgba(255,200,90,.06) 40%,transparent 65%);animation:gfloat 14s ease-in-out infinite alternate}
+.gb.b{left:auto;right:-30vmax;top:auto;bottom:-52vmax;animation-delay:-7s;animation-direction:alternate-reverse}
+@keyframes gfloat{to{transform:translate3d(34vmax,12vmax,0)}}
+
+/* TOUCH GLITTER */
+.glit{position:fixed;inset:0;z-index:200;pointer-events:none;overflow:hidden;filter:drop-shadow(0 0 4px rgba(255,214,110,.85))}
+.glit i{position:absolute;opacity:0;background:radial-gradient(circle,#fff 0,#fff3b8 28%,#e2b857 70%);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);animation:glit .9s ease-out both}
+@keyframes glit{0%{opacity:0;transform:translate3d(0,0,0) scale(.1) rotate(0)}25%{opacity:1;transform:translate3d(calc(var(--dx) * .3),calc(var(--dy) * .2),0) scale(1) rotate(calc(var(--r) * .5))}100%{opacity:0;transform:translate3d(var(--dx),var(--dy),0) scale(.2) rotate(var(--r))}}
+@media(prefers-reduced-motion:reduce){.mh.on .d{stroke-dashoffset:0}}
+
+/* PAGE 2: its own midnight sky */
+.p2{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0,var(--night2) 0,var(--night) 70%);padding:16vh 6vw 12vh;text-align:center}
+.p2::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 20% 30%,var(--gold2),transparent),radial-gradient(1.5px 1.5px at 70% 20%,var(--gold2),transparent),radial-gradient(1px 1px at 40% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 85% 60%,var(--gold2),transparent),radial-gradient(1px 1px at 10% 85%,#fff,transparent);background-size:300px 300px;animation:twinkle 4s ease-in-out infinite alternate;opacity:.7}
+@keyframes twinkle{to{opacity:.25}}
+.p2>*{position:relative;max-width:60rem;margin-left:auto;margin-right:auto}
+.h2{font-size:clamp(2.4rem,9vw,4rem);font-weight:600}
+.h2-ur{font-size:clamp(1.5rem,6vw,2.2rem)}
+.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:3rem auto}
+.det{padding:1.4rem 1rem}
+.det+.det{border-top:1px solid rgba(226,184,87,.35)}
+@media(min-width:700px){.det+.det{border-top:0;border-left:1px solid rgba(226,184,87,.35)}}
+.det h3{font-size:1.5rem;color:var(--gold);font-weight:600}
+.det .ur{font-size:1.3rem;color:var(--gold2)}
+.det p.v{font-size:1.5rem;margin-top:.4rem;line-height:1.35}
+.cd{display:flex;justify-content:center;flex-wrap:wrap;margin:1.6rem auto 0}
+.cd div{min-width:4.6rem;padding:.4rem 1.1rem}
+.cd div+div{border-left:1px solid rgba(226,184,87,.35)}
+.cd b{display:block;font-size:clamp(2.6rem,12vw,4.4rem);font-weight:600;line-height:1;font-variant-numeric:tabular-nums;color:var(--gold2)}
+.cd span{display:block;font-size:1.1rem}
+.cd .ur{font-size:1.1rem;line-height:1.8}
+.done{display:none;font-size:1.8rem;color:var(--gold2);margin-top:1.5rem}
+.btn{display:none;margin:3.2rem auto 0;padding:.9rem 2.2rem;border:1px solid var(--gold);border-radius:999px;color:var(--gold2);text-decoration:none;font-size:1.2rem;transition:background .3s,color .3s}
+.btn:hover,.btn:focus-visible{background:var(--gold);color:var(--night);outline:none}
+.foot{margin-top:4rem;opacity:.9}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none;filter:none}}
+/* BOLD TEXT + BLACK OUTLINE */
+.scene,.p2{font-weight:700;-webkit-text-stroke:2px #000;paint-order:stroke fill}
+.title,.names,.h2,.det h3,.cd b{font-weight:700}
+.gold{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#f0cd6e;-webkit-text-stroke:2px #000}
+.title.gold,.names.gold{-webkit-text-stroke:3px #000}
+</style>
+</head>
+<body>
+
+<div id="env" role="button" tabindex="0" aria-label="Tap to open the invitation">
+  <div class="sp" id="sp"></div>
+  <div class="ev">
+    <div class="ins"></div>
+    <svg class="pk" viewBox="0 0 400 480" aria-hidden="true">
+      <defs>
+        <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfd8e8"/><stop offset="1" stop-color="#b3bfd6"/></linearGradient>
+        <linearGradient id="gr" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4dcea"/><stop offset="1" stop-color="#b9c4da"/></linearGradient>
+        <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9e0ec"/><stop offset="1" stop-color="#c0cadf"/></linearGradient>
+      </defs>
+      <path d="M0 0L200 292L0 480Z" fill="url(#gl)"/>
+      <path d="M400 0L200 292L400 480Z" fill="url(#gr)"/>
+      <path d="M0 480L200 292L400 480Z" fill="url(#gb)"/>
+      <g fill="none" stroke-linejoin="round">
+        <path d="M0 0L200 292L400 0M0 480L200 292L400 480" stroke="#8e8584" stroke-width="2"/>
+        <path d="M0 3L200 295L400 3M0 483L200 295L400 483" stroke="#fff" stroke-opacity=".7"/>
+        <path d="M22 458L200 314L378 458" stroke="#9a908f" stroke-width="2.2"/>
+        <path d="M22 462L200 318L378 462" stroke="#fff" stroke-opacity=".75"/>
+        <path d="M44 440L200 332L356 440" stroke="#9a908f" stroke-width="2.6" stroke-dasharray="1 7" stroke-linecap="round"/>
+        <path d="M40 452Q66 426 98 434M360 452Q334 426 302 434" stroke="#9a908f" stroke-width="1.8"/>
+        <g stroke="#fff" stroke-opacity=".6"><circle cx="46" cy="330" r="22"/><circle cx="46" cy="330" r="14"/><circle cx="46" cy="330" r="6"/><circle cx="354" cy="330" r="22"/><circle cx="354" cy="330" r="14"/><circle cx="354" cy="330" r="6"/></g>
+      </g>
+    </svg>
+    <div class="fl">
+      <div class="ff">
+        <svg viewBox="0 0 400 330" aria-hidden="true">
+          <defs>
+            <linearGradient id="gf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe5f0"/><stop offset=".6" stop-color="#cbd4e6"/><stop offset="1" stop-color="#c0cadf"/></linearGradient>
+            <path id="fp" d="M0 0H400V190C400 215 372 222 346 232C318 244 296 262 262 288C240 305 222 312 200 322C178 312 160 305 138 288C104 262 82 244 54 232C28 222 0 215 0 190Z"/>
+            <path id="cu" d="M124 228C110 212 92 218 97 233C102 246 118 241 113 231"/>
+            <g id="rs"><circle r="17" fill="#d49aa5"/><circle r="13.5" fill="#e2b0b9"/><path d="M-11 -3Q0 -14 11 -3" fill="none" stroke="#b66f7e" stroke-width="1.6"/><path d="M-9 4Q0 12 9 4" fill="none" stroke="#c4838f" stroke-width="1.4"/><circle r="8" fill="#ebc3ca"/><path d="M-6 -1Q0 -8 6 -1" fill="none" stroke="#b66f7e" stroke-width="1.4"/><circle r="3.6" fill="#d08f9b"/></g>
+          </defs>
+          <use href="#fp" fill="url(#gf)" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
+          <use href="#fp" transform="translate(200 150) scale(.93) translate(-200 -150)" fill="none" stroke="#9a908f" stroke-width="3"/>
+          <use href="#fp" transform="translate(200 150) scale(.9) translate(-200 -150)" fill="none" stroke="#fff" stroke-opacity=".75"/>
+          <g fill="none" stroke="#9a908f" stroke-width="1.8"><use href="#cu"/><use href="#cu" transform="translate(400 0) scale(-1 1)"/></g>
+          <path d="M200 216C226 216 244 234 246 256C248 278 226 292 200 306C174 292 152 278 154 256C156 234 174 216 200 216Z" fill="#e6ebf4" stroke="#9a908f" stroke-width="2.4"/>
+          <g fill="#8fa593"><ellipse rx="15" ry="5" transform="translate(163 250) rotate(-35)"/><ellipse rx="15" ry="5" transform="translate(237 250) rotate(35)"/><ellipse rx="13" ry="4.5" transform="translate(168 284) rotate(30)"/><ellipse rx="13" ry="4.5" transform="translate(232 284) rotate(-30)"/><ellipse rx="12" ry="4" transform="translate(200 222) rotate(90)"/></g>
+          <use href="#rs" transform="translate(200 254) scale(1.25)"/>
+          <use href="#rs" transform="translate(177 275) scale(.78)"/>
+          <use href="#rs" transform="translate(223 273) scale(.78)"/>
+          <text x="200" y="96" text-anchor="middle" font-family="Allura,'Great Vibes',cursive" font-size="52" fill="#4b6290">You’re Invited</text>
+          <text class="tap" x="200" y="142" text-anchor="middle" font-family="Allura,'Great Vibes',cursive" font-size="30" fill="#4b6290">Tap to Open</text>
+        </svg>
+      </div>
+      <div class="fb"><svg viewBox="0 0 400 330" aria-hidden="true"><use href="#fp" fill="#b3bfd6" stroke="#fff" stroke-opacity=".6" stroke-width="2"/><use href="#fp" transform="translate(200 150) scale(.9) translate(-200 -150)" fill="none" stroke="#8e8584" stroke-opacity=".6" stroke-width="2"/></svg></div>
+    </div>
+    <p class="by">Designed By S.S.A</p>
+  </div>
+</div>
+
+<div class="amb" aria-hidden="true"><i class="gb"></i><i class="gb b"></i><div class="dust" id="dust"></div></div>
+
+<!-- PAGE 1 -->
+<main class="p1">
+  <div class="bg" aria-hidden="true"></div>
+
+  <section class="scene s1">
+    <div class="mh" id="mh" aria-hidden="true">
+      <svg viewBox="0 0 400 440" preserveAspectRatio="xMidYMin meet">
+        <defs>
+          <linearGradient id="gd" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="400" y2="0"><stop offset="0" stop-color="#b8892f"/><stop offset=".25" stop-color="#f6e3a1"/><stop offset=".5" stop-color="#e2b857"/><stop offset=".75" stop-color="#f6e3a1"/><stop offset="1" stop-color="#b8892f"/></linearGradient>
+          <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e3a1"/><stop offset="1" stop-color="#c9973a"/></linearGradient>
+          <linearGradient id="lb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".55" stop-color="#f0b94a"/><stop offset="1" stop-color="#b8741c"/></linearGradient>
+          <g id="lp">
+            <path d="M-5 0H5L8 8H-8Z" fill="#7a5a1c" stroke="url(#gl)" stroke-width="1.3"/>
+            <path d="M-8 8C-19 15 -19 35 -6 45H6C19 35 19 15 8 8Z" fill="url(#lb)" stroke="url(#gl)" stroke-width="1.5"/>
+            <ellipse cx="0" cy="27" rx="4" ry="8" fill="#fff6c8"/>
+            <path d="M-5 14V40M0 11V44M5 14V40" stroke="#7a5a1c" stroke-width=".7" fill="none" opacity=".8"/>
+            <path d="M-6 45L-3 51H3L6 45Z" fill="#7a5a1c" stroke="url(#gl)" stroke-width="1.2"/>
+            <circle cy="54.5" r="2.2" fill="url(#gl)"/>
+          </g>
+          <g id="ar" fill="none"><path d="M18 120C18 70 40 36 80 24C96 20 108 22 114 14"/><path d="M52 40C52 28 66 26 68 36C70 44 60 46 58 40"/><path d="M30 72C30 62 40 60 42 68C44 74 36 76 35 71"/></g>
+        </defs>
+        <path d="M12 440V150C12 70 110 40 200 6C290 40 388 70 388 150V440Z" fill="rgba(22,1,6,.32)"/>
+        <g fill="none" stroke="url(#gd)" stroke-linecap="round" stroke-linejoin="round">
+          <path class="d" pathLength="1" d="M12 440V150C12 70 110 40 200 6C290 40 388 70 388 150V440" stroke-width="3"/>
+          <path class="d" pathLength="1" d="M32 440V158C32 90 120 62 200 30C280 62 368 90 368 158V440" stroke-width="1.8"/>
+          <path class="d" pathLength="1" d="M46 440V164C46 104 128 78 200 48C272 78 354 104 354 164V440" stroke-width=".9"/>
+          <path class="f" d="M22 440V154C22 80 116 50 200 18C284 50 378 80 378 154V440" stroke-width="2.4" stroke-dasharray="1 7"/>
+          <path class="f" d="M170 62Q200 44 230 62M180 72Q200 58 220 72M12 296H46M12 304H46M354 296H388M354 304H388" stroke-width="1.1"/>
+          <g class="f" stroke-width="1.2"><use href="#ar"/><use href="#ar" transform="translate(400 0) scale(-1 1)"/></g>
+        </g>
+        <g class="lamps">
+          <path d="M47 112V150" stroke="url(#gl)" stroke-width="1.3" stroke-dasharray="2.5 2" fill="none"/><use href="#lp" transform="translate(47 150) scale(0.75)"/><path d="M106 69V130" stroke="url(#gl)" stroke-width="1.3" stroke-dasharray="2.5 2" fill="none"/><use href="#lp" transform="translate(106 130) scale(0.95)"/><path d="M200 30V140" stroke="url(#gl)" stroke-width="1.3" stroke-dasharray="2.5 2" fill="none"/><use href="#lp" transform="translate(200 140) scale(1.3)"/><path d="M294 69V130" stroke="url(#gl)" stroke-width="1.3" stroke-dasharray="2.5 2" fill="none"/><use href="#lp" transform="translate(294 130) scale(0.95)"/><path d="M353 112V150" stroke="url(#gl)" stroke-width="1.3" stroke-dasharray="2.5 2" fill="none"/><use href="#lp" transform="translate(353 150) scale(0.75)"/>
+        </g>
+      </svg>
+      <div class="lgs">
+        <i class="lg" style="--x:11.75%;--y:38.4%;--w:30%;--d:0s"></i>
+        <i class="lg" style="--x:26.5%;--y:36%;--w:34%;--d:-.9s"></i>
+        <i class="lg" style="--x:50%;--y:42%;--w:46%;--d:-1.8s"></i>
+        <i class="lg" style="--x:73.5%;--y:36%;--w:34%;--d:-2.7s"></i>
+        <i class="lg" style="--x:88.25%;--y:38.4%;--w:30%;--d:-.4s"></i>
+      </div>
+    </div>
+    
+    <p class="ar bism reveal" style="--d:.3s">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <p class="ar bism reveal" style="--d:.45s;font-size:1.3rem">اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَآلِ مُحَمَّدٍ</p>
+    <h1 class="title en gold reveal" style="--d:.6s">Walima</h1>
+    <p class="ur title-ur gold reveal" style="--d:.9s">دعوتِ ولیمہ</p>
+    <p class="en sub reveal" style="--d:1.2s">An invitation to the wedding feast</p>
+    <div class="hint reveal" style="--d:1.6s"><p class="en">Scroll</p><p class="ur">نیچے سکرول کریں</p><i class="arrow"></i></div>
+  </section>
+
+  <section class="scene">
+    <p class="en sub reveal">With the blessings of Allah</p>
+    <p class="ur reveal" style="--d:.2s">اللہ کے فضل و کرم سے</p>
+    <div class="orn reveal" style="--d:.4s"></div>
+    <h2 class="names en gold reveal" style="--d:.6s">Sayed Hasan Ali</h2>
+    <p class="en sub reveal" style="--d:.7s">son of Sayed Tanveer Hasan</p>
+    <p class="amp en reveal" style="--d:.8s">&amp;</p>
+    <h2 class="names en gold reveal" style="--d:1s">Sadaf Fatema</h2>
+    <p class="en sub reveal" style="--d:1.1s">daughter of Mauzzam Husain<br>Lakshmi Nagar, New Delhi</p>
+    <p class="names-ur ur gold reveal" style="--d:1.2s">سید حسن علی</p>
+    <p class="ur sub reveal" style="--d:1.3s">فرزندِ سید تنویر حسن</p>
+    <p class="names-ur ur gold reveal" style="--d:1.4s">صدف فاطمہ</p>
+    <p class="ur sub reveal" style="--d:1.5s">دخترِ معظم حسین · لکشمی نگر، نئی دہلی</p>
+  </section>
+
+  <section class="scene">
+    <p class="en reveal">In the love of Muhammad and Aale Muhammad (a.s.), the families of Sayed Tanveer Hasan and Mauzzam Husain warmly invite you to the Dawat-e-Walima of their children.</p>
+    <p class="ur reveal" style="--d:.3s">محمد و آلِ محمد علیہم السلام کی محبت میں، سید تنویر حسن اور معظم حسین کے اہلِ خانہ اپنے بچوں کی دعوتِ ولیمہ میں آپ کو دلی دعوت دیتے ہیں۔</p>
+    <div class="orn reveal" style="--d:.6s"></div>
+    <p class="ar bism reveal" style="--d:.8s">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+    <p class="en sub reveal" style="--d:1s">May Allah bless you both, shower blessings upon you, and unite you in goodness.</p>
+    <p class="ur sub reveal" style="--d:1.2s">اللہ تم دونوں کو برکت دے اور خیر میں جمع رکھے۔</p>
+  </section>
+
+  <section class="scene">
+    <p class="en reveal">Your presence and prayers will complete our joy.</p>
+    <p class="ur reveal" style="--d:.3s">آپ کی تشریف آوری اور دعائیں ہماری خوشی کو مکمل کریں گی۔</p>
+    <div class="hint reveal" style="--d:.7s"><p class="en">Event details below</p><p class="ur">تقریب کی تفصیل نیچے ہے</p><i class="arrow"></i></div>
+  </section>
+</main>
+
+<!-- PAGE 2 -->
+<section class="p2" id="details">
+  <h2 class="h2 en gold reveal">Save the Date</h2>
+  <p class="h2-ur ur gold reveal" style="--d:.2s">تاریخ یاد رکھیں</p>
+
+  <p class="en sub reveal" style="--d:.3s;margin-top:1rem">On the blessed occasion of the Wiladat of Imam Zain-ul-Abidin (a.s.)</p>
+  <p class="ur sub reveal" style="--d:.4s">امام زین العابدین علیہ السلام کی ولادتِ باسعادت کے مبارک موقع پر</p>
+
+  <div class="details">
+    <div class="det reveal">
+      <h3 class="en">Date</h3><p class="ur">تاریخ</p>
+      <p class="v en">Thursday, 14 January 2027<br>5 Shaban 1448 AH</p>
+      <p class="v ur">جمعرات، ۱۴ جنوری ۲۰۲۷<br>۵ شعبان ۱۴۴۸ ہجری</p>
+    </div>
+    <div class="det reveal" style="--d:.2s">
+      <h3 class="en">Time</h3><p class="ur">وقت</p>
+      <p class="v en">7:00 PM onwards</p>
+      <p class="v ur">شام ۷ بجے سے</p>
+    </div>
+    <div class="det reveal" style="--d:.4s">
+      <h3 class="en">Venue</h3><p class="ur">مقام</p>
+      <p class="v en">Milkiyana, Karhan,<br>Mau (U.P.)</p>
+      <p class="v ur">ملکیانہ، کرہاں،<br>مئو (یو پی)</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p class="en sub">The celebration begins in</p>
+    <p class="ur sub">تقریب شروع ہونے میں</p>
+    <div class="cd" id="cd">
+      <div><b id="d">00</b><span class="en">Days</span><span class="ur">دن</span></div>
+      <div><b id="h">00</b><span class="en">Hours</span><span class="ur">گھنٹے</span></div>
+      <div><b id="m">00</b><span class="en">Minutes</span><span class="ur">منٹ</span></div>
+      <div><b id="s">00</b><span class="en">Seconds</span><span class="ur">سیکنڈ</span></div>
+    </div>
+    <p class="done en" id="done">Alhamdulillah, today is the day!<br><span class="ur">الحمدللہ، آج وہ دن ہے!</span></p>
+  </div>
+
+  <a class="btn en reveal" id="rsvp" href="#">Confirm your attendance · تصدیق کریں</a>
+
+  <div class="foot reveal">
+    <div class="orn"></div>
+    <p class="en">With love and duas,</p>
+    <p class="ur">دعاؤں کے طلبگار</p>
+    <p class="en gold" style="font-size:1.8rem">Sayed Tanveer Hasan<br>&amp; family</p>
+    <p class="ur gold" style="font-size:1.3rem">سید تنویر حسن اور اہل خانہ</p>
+  </div>
+</section>
+
+<script>
+// ---- Edit these two values ----
+const EVENT_TIME = '2027-01-14T19:00:00+05:30'; // date and time of the Walima
+const WHATSAPP = ''; // e.g. '919876543210'. Leave empty to hide the confirm button.
+
+
+// Safari/device fallback: if IntersectionObserver is unavailable, show all text.
+const io = ('IntersectionObserver' in window)
+  ? new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    }), {threshold: .15})
+  : null;
+const startReveals = () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (io) io.observe(el);
+    else el.classList.add('in');
+  });
+};
+
+const dust = document.getElementById('dust');
+for (let i = 0; i < 18; i++) {
+  const s = document.createElement('i'), z = 7 + Math.random() * 9;
+  s.style.cssText = `left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*20}s`;
+  dust.appendChild(s);
+}
+
+const T = new Date(EVENT_TIME).getTime();
+const $ = id => document.getElementById(id);
+function count() {
+  const left = T - Date.now();
+  if (left <= 0) { $('cd').style.display = 'none'; $('done').style.display = 'block'; return; }
+  const t = Math.floor(left / 1000), p = n => String(n).padStart(2, '0');
+  $('d').textContent = p(Math.floor(t / 86400));
+  $('h').textContent = p(Math.floor(t % 86400 / 3600));
+  $('m').textContent = p(Math.floor(t % 3600 / 60));
+  $('s').textContent = p(t % 60);
+}
+count(); setInterval(count, 1000);
+
+// ---- Envelope intro ----
+const envEl = document.getElementById('env'), spEl = document.getElementById('sp');
+document.body.classList.add('lock');
+for (let i = 0; i < 24; i++) {
+  const s = document.createElement('i'), z = 2 + Math.random() * 4;
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;animation-delay:${-Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+  spEl.appendChild(s);
+}
+function openEnv() {
+  if (envEl.classList.contains('open')) return;
+  envEl.classList.add('open');
+  setTimeout(() => { envEl.classList.add('go'); start(); }, 1300);
+  setTimeout(() => { envEl.remove(); document.body.classList.remove('lock'); }, 2700);
+}
+envEl.addEventListener('click', openEnv);
+envEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnv(); } });
+
+function start() { startReveals(); document.getElementById('mh').classList.add('on'); }
+
+// ---- Touch glitter (about 0.5-1 cm sparkles) ----
+if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  const glit = document.createElement('div');
+  glit.className = 'glit';
+  document.body.appendChild(glit);
+  let lastG = 0;
+  const glitter = (x, y, n) => {
+    if (glit.childElementCount > 36) return;
+    for (let i = 0; i < n; i++) {
+      const e = document.createElement('i'), z = 18 + Math.random() * 18;
+      e.style.cssText = `left:${x + (Math.random() - .5) * 50 - z / 2}px;top:${y + (Math.random() - .5) * 50 - z / 2}px;width:${z}px;height:${z}px;--r:${(Math.random() * 120 - 60) | 0}deg;--dx:${(Math.random() * 40 - 20) | 0}px;--dy:${(10 + Math.random() * 30) | 0}px;animation-delay:${i * 70}ms`;
+      e.addEventListener('animationend', () => e.remove(), { once: true });
+      glit.appendChild(e);
+    }
+  };
+  const trail = (x, y) => { const t = performance.now(); if (t - lastG > 70) { lastG = t; glitter(x, y, 1); } };
+  addEventListener('pointerdown', e => glitter(e.clientX, e.clientY, 3), { passive: true });
+  addEventListener('touchmove', e => { const t = e.touches[0]; if (t) trail(t.clientX, t.clientY); }, { passive: true });
+  addEventListener('mousemove', e => { if (e.buttons) trail(e.clientX, e.clientY); }, { passive: true });
+}
+
+if (WHATSAPP) {
+  const b = $('rsvp');
+  b.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Assalamu alaikum, I will attend the Walima insha’Allah.');
+  b.style.display = 'table';
+}
+</script>
+</body>
+</html>
