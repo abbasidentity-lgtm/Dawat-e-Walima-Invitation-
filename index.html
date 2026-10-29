@@ -6,15 +6,15 @@
 <title>Walima Invitation · دعوتِ ولیمہ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&family=Allura&family=Great+Vibes&family=Alex+Brush&display=swap" rel="stylesheet">
 <style>
 :root{--em1:#2a0510;--em2:#5c1022;--em3:#86182e;--gold:#e2b857;--gold2:#f6e3a1;--night:#1d0509;--night2:#5a1020;--ivory:#fbf3df;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
 html{background:var(--em1);scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;color:var(--ivory);font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.25rem,4vw,1.55rem);overflow-x:hidden}
 .en{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.02em}
-.ur{font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq','Noto Naskh Arabic',serif;direction:rtl;line-height:2.2}
-.ar{font-family:Amiri,'Noto Naskh Arabic',serif;direction:rtl;line-height:2}
+.ur{font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq','Noto Naskh Arabic',serif;direction:rtl;line-height:2.35;font-weight:400!important;font-style:normal!important;font-synthesis:none;letter-spacing:0!important;-webkit-text-stroke:0!important;font-feature-settings:"liga" 1,"clig" 1,"calt" 1,"ccmp" 1,"locl" 1,"mark" 1,"mkmk" 1;text-rendering:optimizeLegibility}
+.ar{font-family:Amiri,'Noto Naskh Arabic',serif;direction:rtl;line-height:2;font-style:normal!important;font-synthesis:none;letter-spacing:0!important;-webkit-text-stroke:0!important}
 .gold{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 @keyframes shine{to{background-position:-200% 0}}
 p,h1,h2,h3{margin:0}
@@ -26,8 +26,8 @@ p,h1,h2,h3{margin:0}
 .dust{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
 .dust i{position:absolute;bottom:-20px;background:linear-gradient(135deg,#fff7d6,var(--gold));clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:rise linear infinite}
 @keyframes rise{0%{transform:translate3d(0,0,0) scale(.3) rotate(0);opacity:0}12%{opacity:.9;transform:translate3d(4px,-12vh,0) scale(1) rotate(30deg)}50%{opacity:.5;transform:translate3d(-14px,-55vh,0) scale(.7) rotate(120deg)}100%{transform:translate3d(20px,-110vh,0) scale(.4) rotate(220deg);opacity:0}}
-.scene{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12vh 7vw;gap:.5rem}
-.scene>*{max-width:34rem}
+.scene{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12vh 7vw;gap:.5rem}
+.scene>*{max-width:34rem;position:relative;z-index:4}
 .reveal{opacity:0;transform:translate3d(0,26px,0);transition:opacity 1s ease-out,transform 1s cubic-bezier(.22,.8,.3,1);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
 .orn{width:min(55vw,240px);height:1px;margin:1.1rem auto;background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}
@@ -40,56 +40,79 @@ p,h1,h2,h3{margin:0}
 .sub{font-style:italic}
 .names{font-size:clamp(2.6rem,12vw,4.6rem);line-height:1.1;font-weight:600}
 .names-ur{font-size:clamp(1.8rem,7.5vw,2.8rem)}
+.zoy-fix{position:relative;display:inline-block}
+.zoy-fix::after{content:"";position:absolute;left:.90em;top:.32em;width:.14em;height:.14em;background:var(--ivory);border:1.5px solid #000;box-sizing:content-box;transform:rotate(45deg);border-radius:1px;pointer-events:none}
 .amp{font-size:1.6rem;color:var(--gold);font-style:italic;margin:.2rem 0}
 .hint{margin-top:2.5rem;font-size:1.1rem;opacity:.95}
 .arrow{display:block;margin:.6rem auto 0;width:14px;height:14px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);animation:bob 1.6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(8px) rotate(45deg)}}
 
 /* ENVELOPE INTRO */
-body.lock{overflow:hidden;height:100vh;height:100svh}
-@supports not (height: 100svh){.bg{height:100vh;margin-bottom:-100vh}.scene{min-height:100vh}}
-#env{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:none;background:radial-gradient(ellipse at 25% 8%,#eef2fa 0,transparent 55%),radial-gradient(ellipse at 85% 75%,#aeb9d2 0,transparent 60%),linear-gradient(160deg,#c6d0e3,#9fabc8 48%,#cdd6e7);transition:opacity 1.1s ease-in-out .15s;will-change:opacity}
-#env::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(105deg,rgba(255,255,255,.16) 0 3px,transparent 3px 46px),repeating-linear-gradient(75deg,rgba(80,95,140,.07) 0 5px,transparent 5px 60px)}
+body.lock{overflow:hidden;height:100svh}
+#env{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;cursor:pointer;touch-action:none;background:radial-gradient(ellipse at 50% 12%,#ffffff 0%,#eef4fc 35%,#cfddec 75%,#b3c4dc 100%);transition:opacity 1.1s ease-in-out .15s;will-change:opacity;overflow:hidden}
+.satin-wave{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 10%,rgba(255,255,255,0.98) 0%,rgba(235,242,252,0.55) 45%,transparent 70%),radial-gradient(ellipse at 85% 85%,rgba(170,188,218,0.75) 0%,transparent 60%),radial-gradient(ellipse at 12% 80%,rgba(180,198,225,0.65) 0%,transparent 55%),linear-gradient(135deg,rgba(255,255,255,0.65) 0%,rgba(195,212,238,0.3) 28%,rgba(255,255,255,0.85) 50%,rgba(175,195,225,0.42) 72%,rgba(215,228,246,0.65) 100%);pointer-events:none}
+.satin-svg{position:absolute;inset:0;width:100%;height:100%;opacity:0.4;pointer-events:none}
 #env.go{opacity:0;pointer-events:none}
-.sp{position:absolute;inset:0;overflow:hidden}
-.sp i{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,255,255,.9);opacity:0;animation:tw 3s ease-in-out infinite}
-@keyframes tw{50%{opacity:.95;transform:scale(1.4)}}
-.ev{position:relative;width:min(88vw,420px);aspect-ratio:400/480;perspective:1300px;transition:transform 1.3s cubic-bezier(.4,0,.2,1)}
+.sp{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.sp i{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(255,255,255,1),0 0 20px 6px rgba(190,220,255,0.7);opacity:0;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1.4)}}
+.ev{position:relative;width:min(88vw,420px,calc(84vh * 400 / 480));aspect-ratio:400/480;perspective:1400px;-webkit-perspective:1400px;filter:drop-shadow(0 20px 40px rgba(25,38,65,.42)) drop-shadow(0 8px 16px rgba(25,38,65,.25));transition:transform 1.3s cubic-bezier(.4,0,.2,1);-webkit-transition:-webkit-transform 1.3s cubic-bezier(.4,0,.2,1);will-change:transform}
 #env.go .ev{transform:scale(1.45)}
-.ins{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#faf6f0 0,#e4dde0 55%,#bfc0d2 100%),repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 9px,rgba(170,176,205,.3) 9px 24px);background-blend-mode:multiply}
-.ins::before{content:"";position:absolute;left:0;right:0;top:0;height:34%;background:linear-gradient(#ecd5cb,#f6ece6);border-radius:0 0 50% 50%/0 0 70% 70%;opacity:.9}
-.pk,.ff svg,.fb svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.pk{filter:drop-shadow(0 8px 14px rgba(50,60,100,.35))}
-.fl{position:absolute;left:0;top:0;width:100%;height:68.75%;transform-origin:50% 0;transform-style:preserve-3d;transition:transform 1.3s cubic-bezier(.45,.05,.25,1)}
-#env.open .fl{transform:rotateX(180deg)}
-.ff,.fb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.fb{transform:rotateX(180deg)}
+.ins{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 25%,#fff 0,#f6f8fd 60%,#e2ecf8 100%);box-shadow:inset 0 0 25px rgba(150,172,205,.3);border-radius:3px;overflow:hidden}
+.ins-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pk{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:4;pointer-events:none}
+.fl{position:absolute;left:0;top:0;width:100%;height:71%;transform-origin:50% 0;-webkit-transform-origin:50% 0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform 1.3s cubic-bezier(.45,.05,.25,1);-webkit-transition:-webkit-transform 1.3s cubic-bezier(.45,.05,.25,1);z-index:5;filter:drop-shadow(0 10px 18px rgba(30,42,75,.35))}
+#env.open .fl{transform:rotateX(180deg);-webkit-transform:rotateX(180deg)}
+.ff,.fb{position:absolute;inset:0;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.ff svg,.fb svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fb{transform:rotateX(180deg);-webkit-transform:rotateX(180deg)}
 .tap{animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.45}}
-.by{position:absolute;left:50%;transform:translateX(-50%);bottom:2.4%;margin:0;z-index:3;font-family:'Great Vibes','Allura',cursive;font-size:clamp(1.05rem,5.2vw,1.55rem);line-height:1;white-space:nowrap;color:#43588a;text-shadow:0 1px 0 rgba(255,255,255,.7)}
+@keyframes pulse{0%,100%{opacity:.95;transform:scale(1)}50%{opacity:.45;transform:scale(.98)}}
+.by{position:absolute;left:50%;transform:translateX(-50%);bottom:2.4%;margin:0;z-index:10;font-family:'Great Vibes','Alex Brush','Allura',cursive;font-size:clamp(1.1rem,5.2vw,1.55rem);line-height:1;white-space:nowrap;color:#384e78;text-shadow:0 1px 0 rgba(255,255,255,.9),0 0 8px rgba(255,255,255,.6);pointer-events:none}
 
 /* MEHRAB + LAMPS (scrolls away with the page) */
 .s1{padding-top:calc(min(100vw,640px)*.52 + 3vh)}
-.scene>.mh{max-width:640px}
-.mh{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(100%,640px);aspect-ratio:400/440;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(#000 68%,transparent);mask-image:linear-gradient(#000 68%,transparent)}
+.scene>.mh{max-width:640px;position:absolute;z-index:1}
+.mh{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(100%,640px);aspect-ratio:400/440;z-index:1;pointer-events:none;-webkit-mask-image:linear-gradient(#000 68%,transparent);mask-image:linear-gradient(#000 68%,transparent)}
 .mh svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .mh .d{stroke-dasharray:1;stroke-dashoffset:1}
-.mh.on .d{animation:draw 2.4s cubic-bezier(.4,0,.2,1) forwards}
+.mh.on .d{animation:draw 2.1s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
-.mh .f{opacity:0;transition:opacity 1.6s ease 1s}
-.mh.on .f{opacity:.9}
-.lamps{opacity:0;transition:opacity 1.4s ease 1.2s}
-.mh.on .lamps{opacity:1}
-.lgs{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease 1.4s}
-.mh.on .lgs{opacity:1}
-.lg{position:absolute;left:var(--x);top:var(--y);width:var(--w);aspect-ratio:1;margin:calc(var(--w) / -2) 0 0 calc(var(--w) / -2);border-radius:50%;background:radial-gradient(circle,rgba(255,214,110,.8) 0,rgba(255,190,70,.34) 30%,transparent 62%);animation:lglow 3.6s ease-in-out infinite;animation-delay:var(--d)}
-@keyframes lglow{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.18)}}
+.mh .f{opacity:0;transition:opacity 1.4s ease .8s}
+.mh.on .f{opacity:.92}
+.lamps{opacity:0;transform:translateY(-18px);transition:opacity 1.1s ease 1.35s,transform 1.2s cubic-bezier(.22,.8,.3,1) 1.35s}
+.mh.on .lamps{opacity:1;transform:translateY(0)}
+.mh .l-flame{opacity:.15;transition:opacity .9s ease 2.05s,filter .9s ease 2.05s}
+.mh.on .l-flame{opacity:1;filter:drop-shadow(0 0 6px #fff8d6)}
+.lgs{position:absolute;inset:0;opacity:0;transform:scale(.75);transition:opacity 1.3s ease 2.0s,transform 1.4s cubic-bezier(.22,.9,.3,1) 2.0s}
+.mh.on .lgs{opacity:1;transform:scale(1)}
+.lg{position:absolute;left:var(--x);top:var(--y);width:var(--w);aspect-ratio:1;margin:calc(var(--w) / -2) 0 0 calc(var(--w) / -2);border-radius:50%;background:radial-gradient(circle,rgba(255,245,190,.95) 0,rgba(255,214,110,.78) 18%,rgba(255,190,70,.36) 38%,transparent 66%);animation:lglow 3.2s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes lglow{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.22)}}
 
 /* PERSISTENT GOLDEN GLOW + SPARKLES (fixed, stays while scrolling) */
 .amb{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .gb{position:absolute;width:90vmax;height:90vmax;left:-30vmax;top:-48vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,200,90,.17),rgba(255,200,90,.06) 40%,transparent 65%);animation:gfloat 14s ease-in-out infinite alternate}
 .gb.b{left:auto;right:-30vmax;top:auto;bottom:-52vmax;animation-delay:-7s;animation-direction:alternate-reverse}
 @keyframes gfloat{to{transform:translate3d(34vmax,12vmax,0)}}
+
+/* GLOWWORMS & FLUTTERING BUTTERFLIES (3D BEHIND & IN FRONT OF TEXT) */
+.nature-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;perspective:950px;-webkit-perspective:950px;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.nature-layer.back{z-index:2}
+.nature-layer.front{z-index:6}
+.nature-layer.intro{z-index:120}
+.glowworm{position:absolute;left:0;top:0;border-radius:50%;background:radial-gradient(circle,#ffffff 0%,#fff6b3 32%,#f4c84b 62%,transparent 100%);box-shadow:0 0 10px 3px rgba(255,238,145,.88),0 0 24px 8px rgba(235,185,65,.48);will-change:transform,opacity;animation:gwPulse var(--p,3.2s) ease-in-out infinite alternate}
+.nature-layer.back .glowworm{opacity:.78;filter:blur(.3px)}
+@keyframes gwPulse{0%{opacity:.22;filter:brightness(.85)}45%{opacity:.55}100%{opacity:1;filter:brightness(1.38)}}
+.bfly-mover{position:absolute;left:0;top:0;width:var(--sz,30px);height:var(--sz,30px);will-change:transform,opacity;pointer-events:none;perspective:320px;-webkit-perspective:320px;filter:drop-shadow(0 0 8px rgba(255,218,120,.8)) drop-shadow(0 5px 9px rgba(0,0,0,.48))}
+.nature-layer.back .bfly-mover{opacity:.88;filter:drop-shadow(0 0 5px rgba(255,218,120,.5)) drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+.bfly-3d{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transform:perspective(320px) rotateX(var(--rx,30deg)) rotateY(var(--ry,0deg))}
+.bfly-wing{position:absolute;top:0;width:50%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.bfly-wing.L{left:0;transform-origin:100% 50%;-webkit-transform-origin:100% 50%;animation:flapL var(--fl,.24s) ease-in-out infinite alternate}
+.bfly-wing.R{right:0;transform-origin:0% 50%;-webkit-transform-origin:0% 50%;animation:flapR var(--fl,.24s) ease-in-out infinite alternate}
+.bfly-wing svg{width:100%;height:100%;display:block;overflow:visible}
+.bfly-body{position:absolute;left:50%;top:18%;width:2px;height:64%;transform:translateX(-50%);background:linear-gradient(#fff5c0,#c7922c,#5e3c08);border-radius:99px;box-shadow:0 0 4px #ffe89e}
+@keyframes flapL{0%{transform:rotateY(12deg)}100%{transform:rotateY(68deg)}}
+@keyframes flapR{0%{transform:rotateY(-12deg)}100%{transform:rotateY(-68deg)}}
 
 /* TOUCH GLITTER */
 .glit{position:fixed;inset:0;z-index:200;pointer-events:none;overflow:hidden;filter:drop-shadow(0 0 4px rgba(255,214,110,.85))}
@@ -98,10 +121,11 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
 @media(prefers-reduced-motion:reduce){.mh.on .d{stroke-dashoffset:0}}
 
 /* PAGE 2: its own midnight sky */
-.p2{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0,var(--night2) 0,var(--night) 70%);padding:16vh 6vw 12vh;text-align:center}
-.p2::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 20% 30%,var(--gold2),transparent),radial-gradient(1.5px 1.5px at 70% 20%,var(--gold2),transparent),radial-gradient(1px 1px at 40% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 85% 60%,var(--gold2),transparent),radial-gradient(1px 1px at 10% 85%,#fff,transparent);background-size:300px 300px;animation:twinkle 4s ease-in-out infinite alternate;opacity:.7}
+.p2{position:relative;overflow:hidden;padding:16vh 6vw 12vh;text-align:center}
+.p2::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 0,var(--night2) 0,var(--night) 70%)}
+.p2::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(1.5px 1.5px at 20% 30%,var(--gold2),transparent),radial-gradient(1.5px 1.5px at 70% 20%,var(--gold2),transparent),radial-gradient(1px 1px at 40% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 85% 60%,var(--gold2),transparent),radial-gradient(1px 1px at 10% 85%,#fff,transparent);background-size:300px 300px;animation:twinkle 4s ease-in-out infinite alternate;opacity:.7}
 @keyframes twinkle{to{opacity:.25}}
-.p2>*{position:relative;max-width:60rem;margin-left:auto;margin-right:auto}
+.p2>*{position:relative;z-index:4;max-width:60rem;margin-left:auto;margin-right:auto}
 .h2{font-size:clamp(2.4rem,9vw,4rem);font-weight:600}
 .h2-ur{font-size:clamp(1.5rem,6vw,2.2rem)}
 .details{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:3rem auto}
@@ -110,7 +134,8 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
 @media(min-width:700px){.det+.det{border-top:0;border-left:1px solid rgba(226,184,87,.35)}}
 .det h3{font-size:1.5rem;color:var(--gold);font-weight:600}
 .det .ur{font-size:1.3rem;color:var(--gold2)}
-.det p.v{font-size:1.5rem;margin-top:.4rem;line-height:1.35}
+.det p.v{font-size:1.5rem;margin-top:.4rem;line-height:1.35;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+.clear-num{font-family:Georgia,"Times New Roman",serif;font-variant-numeric:lining-nums;letter-spacing:.03em}
 .cd{display:flex;justify-content:center;flex-wrap:wrap;margin:1.6rem auto 0}
 .cd div{min-width:4.6rem;padding:.4rem 1.1rem}
 .cd div+div{border-left:1px solid rgba(226,184,87,.35)}
@@ -121,68 +146,372 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
 .btn{display:none;margin:3.2rem auto 0;padding:.9rem 2.2rem;border:1px solid var(--gold);border-radius:999px;color:var(--gold2);text-decoration:none;font-size:1.2rem;transition:background .3s,color .3s}
 .btn:hover,.btn:focus-visible{background:var(--gold);color:var(--night);outline:none}
 .foot{margin-top:4rem;opacity:.9}
+/* BOTTOM-RIGHT SILVER GLITTER WRITING SIGNATURE */
+.p2>.ssa-sig{position:absolute;right:clamp(1rem,4vw,2.4rem);bottom:calc(env(safe-area-inset-bottom,0px) + clamp(.8rem,2.5vh,1.6rem));margin:0;max-width:none;z-index:10;pointer-events:none;font-weight:400;-webkit-text-stroke:0;display:inline-flex;align-items:center}
+.ssa-txt{display:inline-block;font-family:'Great Vibes','Alex Brush','Allura',cursive;font-size:clamp(1.35rem,4.8vw,1.95rem);line-height:1.2;padding:.15em .2em;white-space:nowrap;background:linear-gradient(110deg,#8d9db5 0%,#ffffff 16%,#b8c6db 32%,#ffffff 48%,#7a8a9e 64%,#f8fbff 82%,#a8b7cc 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;filter:drop-shadow(0 0 6px rgba(225,240,255,.8)) drop-shadow(0 1px 2px rgba(0,0,0,.85));clip-path:inset(-20% 100% -20% 0);-webkit-clip-path:inset(-20% 100% -20% 0)}
+.ssa-sig.write .ssa-txt{animation:writeText 2.6s cubic-bezier(.35,.15,.25,1) forwards,silverShimmer 3s linear infinite}
+@keyframes writeText{0%{clip-path:inset(-20% 100% -20% 0);-webkit-clip-path:inset(-20% 100% -20% 0)}100%{clip-path:inset(-20% 0% -20% 0);-webkit-clip-path:inset(-20% 0% -20% 0)}}
+@keyframes silverShimmer{to{background-position:-240% 0}}
+.ssa-pen{position:absolute;left:0;top:52%;width:14px;height:14px;margin:-7px 0 0 -7px;background:radial-gradient(circle,#fff 0,#e3eeff 45%,transparent 72%);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 14px #c7dcff);opacity:0;pointer-events:none}
+.ssa-sig.write .ssa-pen{animation:penMove 2.6s cubic-bezier(.35,.15,.25,1) forwards}
+@keyframes penMove{0%{left:0%;opacity:1;transform:scale(.6) rotate(0deg)}10%{opacity:1;transform:scale(1.25) rotate(35deg)}88%{left:98%;opacity:1;transform:scale(1.1) rotate(220deg)}100%{left:100%;opacity:0;transform:scale(.3) rotate(260deg)}}
+.ssa-sp{position:absolute;inset:-12px -16px;pointer-events:none;overflow:visible}
+.ssa-sp i{position:absolute;background:radial-gradient(circle,#ffffff 0,#dce8f8 40%,#96a7c2 80%);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);filter:drop-shadow(0 0 4px rgba(255,255,255,.95));opacity:0}
+.ssa-sig.write .ssa-sp i{animation:ssaTwinkle 1.8s ease-in-out infinite}
+@keyframes ssaTwinkle{0%,100%{opacity:0;transform:scale(.2) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none;filter:none}}
 /* BOLD TEXT + BLACK OUTLINE */
 .scene,.p2{font-weight:700;-webkit-text-stroke:2px #000;paint-order:stroke fill}
 .title,.names,.h2,.det h3,.cd b{font-weight:700}
 .gold{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#f0cd6e;-webkit-text-stroke:2px #000}
 .title.gold,.names.gold{-webkit-text-stroke:3px #000}
+.scene .ur,.p2 .ur,.scene .ar,.p2 .ar,.ur.gold,.names-ur.gold,.title-ur.gold,.h2-ur.gold{font-weight:400!important;font-style:normal!important;font-synthesis:none;-webkit-text-stroke:0!important;text-shadow:0 1.5px 2px rgba(0,0,0,.95),0 -1px 1.5px rgba(0,0,0,.9),1.5px 0 1.5px rgba(0,0,0,.9),-1.5px 0 1.5px rgba(0,0,0,.9),0 3px 6px rgba(0,0,0,.85)}
 </style>
 </head>
 <body>
 
 <div id="env" role="button" tabindex="0" aria-label="Tap to open the invitation">
+  <div class="satin-wave" aria-hidden="true"></div>
+  <svg class="satin-svg" viewBox="0 0 800 1200" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="silk-grad1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+        <stop offset="40%" stop-color="#c8d6ec" stop-opacity="0.25"/>
+        <stop offset="100%" stop-color="#9cb0d0" stop-opacity="0.65"/>
+      </linearGradient>
+      <linearGradient id="silk-grad2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+        <stop offset="50%" stop-color="#b8cae2" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#8da3c6" stop-opacity="0.55"/>
+      </linearGradient>
+    </defs>
+    <path d="M-50,0 Q220,320 110,720 T320,1250 L-50,1250 Z" fill="url(#silk-grad1)"/>
+    <path d="M850,0 Q580,380 690,780 T480,1250 L850,1250 Z" fill="url(#silk-grad2)"/>
+    <path d="M120,0 C340,260 230,620 460,920 T240,1250" fill="none" stroke="#ffffff" stroke-width="70" stroke-opacity="0.3" filter="blur(30px)"/>
+  </svg>
+  
   <div class="sp" id="sp"></div>
+
   <div class="ev">
-    <div class="ins"></div>
+    <!-- Inner Card (inside envelope) -->
+    <div class="ins">
+      <svg class="ins-svg" viewBox="0 0 400 480" aria-hidden="true">
+        <defs>
+          <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="45%" stop-color="#f6f9fd"/>
+            <stop offset="100%" stop-color="#e2ecf8"/>
+          </linearGradient>
+          <g id="cornerOrnament">
+            <path d="M 0,0 C 8,4 16,12 18,22 C 16,16 10,12 2,12 C 12,14 18,22 18,28 C 18,20 26,14 34,14 C 26,16 22,22 22,30" fill="none" stroke="#8fa0bc" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="18" cy="18" r="2.8" fill="#8fa0bc"/>
+            <circle cx="6" cy="10" r="1.6" fill="#a4b3cb"/>
+            <circle cx="28" cy="12" r="1.6" fill="#a4b3cb"/>
+            <circle cx="18" cy="28" r="1.6" fill="#a4b3cb"/>
+          </g>
+        </defs>
+        <rect x="0" y="0" width="400" height="480" fill="url(#cardGrad)"/>
+        <rect x="18" y="16" width="364" height="448" rx="2" fill="none" stroke="#a0afca" stroke-width="1.3" stroke-opacity="0.65"/>
+        <rect x="23" y="21" width="354" height="438" rx="2" fill="none" stroke="#ffffff" stroke-width="1.1" stroke-opacity="0.85"/>
+        <line x1="32" y1="30" x2="32" y2="180" stroke="#bcc8dc" stroke-width="0.8" stroke-dasharray="2 3"/>
+        <line x1="368" y1="30" x2="368" y2="180" stroke="#bcc8dc" stroke-width="0.8" stroke-dasharray="2 3"/>
+        <use href="#cornerOrnament" transform="translate(26, 24)"/>
+        <use href="#cornerOrnament" transform="translate(374, 24) scale(-1, 1)"/>
+      </svg>
+    </div>
+
+    <!-- Pocket (Envelope Lower Body) -->
     <svg class="pk" viewBox="0 0 400 480" aria-hidden="true">
       <defs>
-        <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfd8e8"/><stop offset="1" stop-color="#b3bfd6"/></linearGradient>
-        <linearGradient id="gr" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4dcea"/><stop offset="1" stop-color="#b9c4da"/></linearGradient>
-        <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9e0ec"/><stop offset="1" stop-color="#c0cadf"/></linearGradient>
+        <linearGradient id="pocketLeft" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e6eef8"/>
+          <stop offset="100%" stop-color="#c1d0e5"/>
+        </linearGradient>
+        <linearGradient id="pocketRight" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#dce6f4"/>
+          <stop offset="100%" stop-color="#b9c9df"/>
+        </linearGradient>
+        <linearGradient id="pocketBottom" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#d4e0f0"/>
+          <stop offset="100%" stop-color="#c3d2e8"/>
+        </linearGradient>
+        <pattern id="damaskPattern" width="70" height="70" patternUnits="userSpaceOnUse">
+          <g fill="none" stroke="#ffffff" stroke-width="1.3" stroke-opacity="0.45">
+            <path d="M 35,8 C 42,18 52,22 58,16 C 54,28 46,32 35,44 C 24,32 16,28 12,16 C 18,22 28,18 35,8 Z"/>
+            <circle cx="35" cy="24" r="3.5" fill="#ffffff" fill-opacity="0.3"/>
+            <path d="M 18,52 C 26,56 30,64 35,70 C 40,64 44,56 52,52" stroke-dasharray="1 2.5"/>
+            <circle cx="35" cy="56" r="2.2" fill="#ffffff" fill-opacity="0.3"/>
+            <path d="M 12,35 Q 22,38 35,35 Q 48,38 58,35" stroke-dasharray="2 3"/>
+          </g>
+          <g fill="none" stroke="#7e90aa" stroke-width="0.8" stroke-opacity="0.32">
+            <path d="M 35,9 C 42,19 52,23 58,17 C 54,29 46,33 35,45 C 24,33 16,29 12,17 C 18,23 28,19 35,9 Z"/>
+          </g>
+        </pattern>
       </defs>
-      <path d="M0 0L200 292L0 480Z" fill="url(#gl)"/>
-      <path d="M400 0L200 292L400 480Z" fill="url(#gr)"/>
-      <path d="M0 480L200 292L400 480Z" fill="url(#gb)"/>
+
+      <path d="M 0,165 L 200,332 L 0,480 Z" fill="url(#pocketLeft)"/>
+      <path d="M 400,165 L 200,332 L 400,480 Z" fill="url(#pocketRight)"/>
+      <path d="M 0,480 L 200,332 L 400,480 Z" fill="url(#pocketBottom)"/>
+
+      <path d="M 0,165 L 200,332 L 0,480 Z" fill="url(#damaskPattern)" opacity="0.65"/>
+      <path d="M 400,165 L 200,332 L 400,480 Z" fill="url(#damaskPattern)" opacity="0.65"/>
+      <path d="M 0,480 L 200,332 L 400,480 Z" fill="url(#damaskPattern)" opacity="0.55"/>
+
       <g fill="none" stroke-linejoin="round">
-        <path d="M0 0L200 292L400 0M0 480L200 292L400 480" stroke="#8e8584" stroke-width="2"/>
-        <path d="M0 3L200 295L400 3M0 483L200 295L400 483" stroke="#fff" stroke-opacity=".7"/>
-        <path d="M22 458L200 314L378 458" stroke="#9a908f" stroke-width="2.2"/>
-        <path d="M22 462L200 318L378 462" stroke="#fff" stroke-opacity=".75"/>
-        <path d="M44 440L200 332L356 440" stroke="#9a908f" stroke-width="2.6" stroke-dasharray="1 7" stroke-linecap="round"/>
-        <path d="M40 452Q66 426 98 434M360 452Q334 426 302 434" stroke="#9a908f" stroke-width="1.8"/>
-        <g stroke="#fff" stroke-opacity=".6"><circle cx="46" cy="330" r="22"/><circle cx="46" cy="330" r="14"/><circle cx="46" cy="330" r="6"/><circle cx="354" cy="330" r="22"/><circle cx="354" cy="330" r="14"/><circle cx="354" cy="330" r="6"/></g>
+        <path d="M 0,165 L 200,332 L 400,165" stroke="#7888a2" stroke-width="2.5" stroke-opacity="0.6"/>
+        <path d="M 0,480 L 200,332 L 400,480" stroke="#7888a2" stroke-width="2.5" stroke-opacity="0.6"/>
+        <path d="M 0,167 L 200,334 L 400,167" stroke="#ffffff" stroke-width="1.6" stroke-opacity="0.9"/>
+        <path d="M 0,482 L 200,334 L 400,482" stroke="#ffffff" stroke-width="1.6" stroke-opacity="0.9"/>
+        <path d="M 18,468 L 200,342 L 382,468" stroke="#8fa0bc" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M 22,465 L 200,345 L 378,465" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.85"/>
+        <path d="M 38,452 L 200,358 L 362,452" stroke="#8e9eb7" stroke-width="2.2" stroke-dasharray="1 6" stroke-linecap="round"/>
+        <path d="M 35,462 Q 65,432 105,442" stroke="#8e9eb7" stroke-width="1.6"/>
+        <path d="M 365,462 Q 335,432 295,442" stroke="#8e9eb7" stroke-width="1.6"/>
       </g>
     </svg>
+
+    <!-- Top Flap with 3D Flip -->
     <div class="fl">
+      <!-- FRONT OF FLAP -->
       <div class="ff">
-        <svg viewBox="0 0 400 330" aria-hidden="true">
+        <svg viewBox="0 0 400 340" aria-hidden="true">
           <defs>
-            <linearGradient id="gf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe5f0"/><stop offset=".6" stop-color="#cbd4e6"/><stop offset="1" stop-color="#c0cadf"/></linearGradient>
-            <path id="fp" d="M0 0H400V190C400 215 372 222 346 232C318 244 296 262 262 288C240 305 222 312 200 322C178 312 160 305 138 288C104 262 82 244 54 232C28 222 0 215 0 190Z"/>
-            <path id="cu" d="M124 228C110 212 92 218 97 233C102 246 118 241 113 231"/>
-            <g id="rs"><circle r="17" fill="#d49aa5"/><circle r="13.5" fill="#e2b0b9"/><path d="M-11 -3Q0 -14 11 -3" fill="none" stroke="#b66f7e" stroke-width="1.6"/><path d="M-9 4Q0 12 9 4" fill="none" stroke="#c4838f" stroke-width="1.4"/><circle r="8" fill="#ebc3ca"/><path d="M-6 -1Q0 -8 6 -1" fill="none" stroke="#b66f7e" stroke-width="1.4"/><circle r="3.6" fill="#d08f9b"/></g>
+            <linearGradient id="flapBase" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#edf3fb"/>
+              <stop offset="45%" stop-color="#d8e3f2"/>
+              <stop offset="85%" stop-color="#c3d2e8"/>
+              <stop offset="100%" stop-color="#b0c2db"/>
+            </linearGradient>
+            <linearGradient id="metallicRim" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="25%" stop-color="#b6c5dc"/>
+              <stop offset="60%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#8f9fb8"/>
+            </linearGradient>
+            <radialGradient id="roseBaseGrad" cx="42%" cy="38%" r="60%">
+              <stop offset="0%" stop-color="#feeef1"/>
+              <stop offset="20%" stop-color="#f2b8c3"/>
+              <stop offset="55%" stop-color="#da8e9f"/>
+              <stop offset="85%" stop-color="#b55f75"/>
+              <stop offset="100%" stop-color="#8c394e"/>
+            </radialGradient>
+            <radialGradient id="roseDeepGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#b8586f"/>
+              <stop offset="70%" stop-color="#963c50"/>
+              <stop offset="100%" stop-color="#6a2233"/>
+            </radialGradient>
+            <linearGradient id="paisleyGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="35%" stop-color="#eaf0f9"/>
+              <stop offset="75%" stop-color="#c5d3e8"/>
+              <stop offset="100%" stop-color="#99acc9"/>
+            </linearGradient>
+            <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#bcd0c5"/>
+              <stop offset="45%" stop-color="#8ba394"/>
+              <stop offset="100%" stop-color="#5a7363"/>
+            </linearGradient>
+
+            <path id="flapContour" d="
+              M 0,0 
+              H 400 
+              V 165 
+              C 400,180 392,192 378,200 
+              C 362,210 348,220 336,232 
+              C 320,246 300,260 274,276 
+              C 248,292 228,304 212,314 
+              C 206,318 202,324 200,334 
+              C 198,324 194,318 188,314 
+              C 172,304 152,292 126,276 
+              C 100,260 80,246 64,232 
+              C 52,220 38,210 22,200 
+              C 8,192 0,180 0,165 
+              Z
+            "/>
+
+            <g id="paisleyBoteh">
+              <path d="M 0,46 C -15,36 -22,20 -15,4 C -10,-8 2,-15 14,-22 C 22,-27 30,-34 27,-44 C 24,-52 14,-54 6,-49 C -2,-44 -4,-36 2,-31 C 8,-26 15,-24 10,-17 C 2,-9 -10,-2 -17,8 C -29,22 -24,46 -7,58 C 7,68 27,65 34,50 C 41,35 34,18 22,13 C 12,8 2,15 5,25 C 7,32 17,35 22,30" 
+                    fill="url(#paisleyGrad)" stroke="#8294af" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M 0,38 C -10,31 -15,20 -10,9 C -5,0 5,-7 12,-14 C 17,-19 19,-26 17,-33" 
+                    fill="none" stroke="#71839e" stroke-width="1.2" stroke-dasharray="1 3" stroke-linecap="round"/>
+              <path d="M -2,22 C -6,14 -4,6 0,0 C 4,-5 10,-8 14,-14" fill="none" stroke="#ffffff" stroke-width="1"/>
+              <path d="M -13,42 C -22,28 -20,12 -12,2 C -7,-7 5,-14 12,-21 C 18,-26 23,-31 22,-38" 
+                    fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="1 4" stroke-linecap="round"/>
+              <path d="M 6,18 C 3,14 6,8 10,10 C 13,12 12,18 8,19 Z" fill="#ffffff" fill-opacity="0.8"/>
+            </g>
+
+            <g id="englishRose">
+              <circle cx="0" cy="0" r="22" fill="rgba(70, 30, 45, 0.2)" filter="blur(4px)"/>
+              <path d="M -22,-5 C -27,-17 -15,-27 -2,-25 C 10,-27 22,-20 25,-7 C 28,8 20,23 5,25 C -10,27 -22,17 -25,5 Z" fill="url(#roseBaseGrad)"/>
+              <path d="M -20,-8 C -25,5 -13,22 2,22 C 17,22 25,10 23,-5 C 20,-17 8,-25 -5,-23 C -15,-20 -19,-13 -20,-8 Z" fill="url(#roseBaseGrad)"/>
+              <path d="M -18,5 C -23,15 -8,25 5,24 C 18,23 23,13 20,3" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.9"/>
+              <path d="M -21,-6 C -25,-16 -13,-24 0,-23 C 13,-22 22,-14 23,-4" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.85"/>
+              <path d="M 15,-15 C 25,-5 24,13 10,20" fill="none" stroke="#fdecf0" stroke-width="1.6" stroke-opacity="0.95"/>
+              <path d="M -14,-3 C -18,-11 -8,-19 1,-18 C 10,-17 17,-10 17,-1 C 17,8 9,16 -1,17 C -10,18 -15,10 -15,1" fill="#c77387" stroke="#fce2e8" stroke-width="1.3"/>
+              <path d="M -10,6 C -14,14 -3,19 6,17 C 14,14 17,6 14,-1" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.9"/>
+              <path d="M -13,-7 C -8,-15 4,-16 11,-12 C 16,-8 15,0 10,4" fill="none" stroke="#ffffff" stroke-width="1.3" stroke-opacity="0.85"/>
+              <ellipse cx="0" cy="-1" rx="10" ry="9" fill="url(#roseDeepGrad)"/>
+              <path d="M -5,-4 C -6,-8 0,-10 5,-8 C 9,-5 8,1 4,4 C 0,7 -5,3 -5,-1 C -5,-4 -1,-6 3,-5 C 5,-4 4,0 1,1" 
+                    fill="none" stroke="#ffe3eb" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M -3,0 C -4,4 3,5 5,2" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="1" cy="-2" r="1.2" fill="#ffffff"/>
+            </g>
+
+            <g id="jasmineFloret">
+              <g fill="#ffffff" stroke="#bccde2" stroke-width="0.7">
+                <path d="M 0,-8 C -2.5,-5 -2.5,-2 0,0 C 2.5,-2 2.5,-5 0,-8 Z"/>
+                <path d="M 7.5,-2.5 C 5,-4 2.5,-1.5 0,0 C 2.5,1.5 5,0 7.5,-2.5 Z"/>
+                <path d="M 5,7.5 C 3.5,5 1.5,2.5 0,0 C -1.5,2.5 0,5 5,7.5 Z"/>
+                <path d="M -5,7.5 C 0,5 0,2.5 0,0 C -2.5,1.5 -3.5,5 -5,7.5 Z"/>
+                <path d="M -7.5,-2.5 C -5,0 -2.5,1.5 0,0 C -2.5,-1.5 -5,-4 -7.5,-2.5 Z"/>
+              </g>
+              <circle cx="0" cy="0" r="2" fill="#dcae44"/>
+              <circle cx="0" cy="0" r="1" fill="#fff9dc"/>
+            </g>
+
+            <g id="crownFinial">
+              <path d="M 0,-18 C -3.5,-11 -2.5,-4 0,0 C 2.5,-4 3.5,-11 0,-18 Z" fill="#b0c0d8" stroke="#ffffff" stroke-width="0.9"/>
+              <path d="M 0,-3 C -7,-7 -12,-14 -10,-18 C -7,-16 -4,-11 -2,-7" fill="none" stroke="#889bb7" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M -1,-4 C -7,-8 -11,-14 -9,-17" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round"/>
+              <path d="M 0,-3 C 7,-7 12,-14 10,-18 C 7,-16 4,-11 2,-7" fill="none" stroke="#889bb7" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M 1,-4 C 7,-8 11,-14 9,-17" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round"/>
+              <circle cx="0" cy="2" r="2.5" fill="#d2deef" stroke="#778ba7" stroke-width="0.9"/>
+              <circle cx="-6" cy="1" r="1.8" fill="#d2deef"/>
+              <circle cx="6" cy="1" r="1.8" fill="#d2deef"/>
+            </g>
           </defs>
-          <use href="#fp" fill="url(#gf)" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
-          <use href="#fp" transform="translate(200 150) scale(.93) translate(-200 -150)" fill="none" stroke="#9a908f" stroke-width="3"/>
-          <use href="#fp" transform="translate(200 150) scale(.9) translate(-200 -150)" fill="none" stroke="#fff" stroke-opacity=".75"/>
-          <g fill="none" stroke="#9a908f" stroke-width="1.8"><use href="#cu"/><use href="#cu" transform="translate(400 0) scale(-1 1)"/></g>
-          <path d="M200 216C226 216 244 234 246 256C248 278 226 292 200 306C174 292 152 278 154 256C156 234 174 216 200 216Z" fill="#e6ebf4" stroke="#9a908f" stroke-width="2.4"/>
-          <g fill="#8fa593"><ellipse rx="15" ry="5" transform="translate(163 250) rotate(-35)"/><ellipse rx="15" ry="5" transform="translate(237 250) rotate(35)"/><ellipse rx="13" ry="4.5" transform="translate(168 284) rotate(30)"/><ellipse rx="13" ry="4.5" transform="translate(232 284) rotate(-30)"/><ellipse rx="12" ry="4" transform="translate(200 222) rotate(90)"/></g>
-          <use href="#rs" transform="translate(200 254) scale(1.25)"/>
-          <use href="#rs" transform="translate(177 275) scale(.78)"/>
-          <use href="#rs" transform="translate(223 273) scale(.78)"/>
-          <text x="200" y="96" text-anchor="middle" font-family="Allura,'Great Vibes',cursive" font-size="52" fill="#4b6290">You’re Invited</text>
-          <text class="tap" x="200" y="142" text-anchor="middle" font-family="Allura,'Great Vibes',cursive" font-size="30" fill="#4b6290">Tap to Open</text>
+
+          <use href="#flapContour" fill="url(#flapBase)"/>
+          <use href="#flapContour" fill="url(#damaskPattern)" opacity="0.65"/>
+          <use href="#flapContour" fill="none" stroke="url(#metallicRim)" stroke-width="2.8" stroke-opacity="0.95"/>
+          
+          <g transform="translate(200 150) scale(0.955) translate(-200 -150)">
+            <use href="#flapContour" fill="none" stroke="#7588a4" stroke-width="1.6" stroke-opacity="0.8"/>
+            <use href="#flapContour" fill="none" stroke="#ffffff" stroke-width="1.1" stroke-opacity="0.95"/>
+          </g>
+          
+          <g transform="translate(200 150) scale(0.925) translate(-200 -150)">
+            <use href="#flapContour" fill="none" stroke="#8397b2" stroke-width="2.4" stroke-dasharray="1 5.5" stroke-linecap="round"/>
+            <use href="#flapContour" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="1 5.5" stroke-dashoffset="1" stroke-linecap="round" stroke-opacity="0.9"/>
+          </g>
+
+          <g fill="none" stroke="#8397b2" stroke-width="1.5" stroke-linecap="round">
+            <path d="M 32,204 Q 48,194 65,210 Q 82,198 100,218 Q 118,210 138,236"/>
+            <path d="M 35,207 Q 50,197 67,213" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.85"/>
+            <path d="M 368,204 Q 352,194 335,210 Q 318,198 300,218 Q 282,210 262,236"/>
+            <path d="M 365,207 Q 350,197 333,213" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.85"/>
+          </g>
+
+          <!-- "You're Invited" and "Tap to Open" on upper flap -->
+          <text x="200" y="96" text-anchor="middle" font-family="'Great Vibes', 'Alex Brush', 'Allura', cursive, Georgia, serif" font-size="52" fill="#2d4268" font-style="italic" letter-spacing="0.5">You’re Invited</text>
+          <g class="tap">
+            <text x="200" y="142" text-anchor="middle" font-family="'Great Vibes', 'Alex Brush', 'Allura', cursive, Georgia, serif" font-size="29" fill="#3f5680" font-style="italic">Tap to Open</text>
+          </g>
+
+          <!-- Flap Floral Bouquet & Paisley Medallion -->
+          <use href="#crownFinial" transform="translate(200, 236) scale(1.2)"/>
+
+          <g fill="url(#leafGrad)" stroke="#526b5b" stroke-width="0.9" stroke-linejoin="round">
+            <path d="M 156,252 C 142,248 135,238 132,228 C 142,232 152,238 158,250 Z"/>
+            <line x1="156" y1="252" x2="135" y2="230" stroke="#ffffff" stroke-width="0.7" stroke-opacity="0.65"/>
+            <path d="M 142,272 C 128,272 118,265 114,255 C 124,256 134,262 142,270 Z"/>
+            <line x1="142" y1="272" x2="118" y2="258" stroke="#ffffff" stroke-width="0.7" stroke-opacity="0.65"/>
+            <path d="M 136,306 C 122,312 114,312 108,305 C 115,301 126,301 135,305 Z"/>
+            <path d="M 238,254 C 250,248 260,250 266,258 C 259,262 249,262 240,257 Z"/>
+            <path d="M 242,282 C 254,284 264,291 266,300 C 256,298 249,292 242,284 Z"/>
+          </g>
+
+          <g transform="translate(142, 246) rotate(-38)">
+            <ellipse cx="0" cy="0" rx="6" ry="10" fill="url(#roseBaseGrad)"/>
+            <path d="M -6,5 C -7,-2 -2,-9 0,-12 C 2,-9 7,-2 6,5" fill="none" stroke="#607968" stroke-width="1.3"/>
+          </g>
+
+          <use href="#paisleyBoteh" transform="translate(228, 274) scale(0.92)"/>
+          <use href="#englishRose" transform="translate(184, 270) scale(1.26)"/>
+          <use href="#englishRose" transform="translate(156, 305) scale(1.02) rotate(-16)"/>
+
+          <use href="#jasmineFloret" transform="translate(196, 304) scale(1.25)"/>
+          <use href="#jasmineFloret" transform="translate(184, 320) scale(0.95) rotate(25)"/>
+          <use href="#jasmineFloret" transform="translate(218, 306) scale(1.1) rotate(-15)"/>
+          <use href="#jasmineFloret" transform="translate(208, 322) scale(0.85) rotate(40)"/>
+          <use href="#jasmineFloret" transform="translate(138, 288) scale(0.8) rotate(12)"/>
+
+          <g fill="none" stroke="#778ca7" stroke-width="1.3" stroke-linecap="round">
+            <path d="M 148,326 C 138,331 132,326 134,319 C 137,312 144,315 142,321"/>
+            <path d="M 176,330 Q 188,334 200,337 Q 212,334 224,330"/>
+          </g>
+          
+          <circle cx="200" cy="333" r="3.2" fill="#ffffff" stroke="#778ca7" stroke-width="1.1"/>
+          <circle cx="199" cy="332" r="1.1" fill="#ffffff"/>
         </svg>
       </div>
-      <div class="fb"><svg viewBox="0 0 400 330" aria-hidden="true"><use href="#fp" fill="#b3bfd6" stroke="#fff" stroke-opacity=".6" stroke-width="2"/><use href="#fp" transform="translate(200 150) scale(.9) translate(-200 -150)" fill="none" stroke="#8e8584" stroke-opacity=".6" stroke-width="2"/></svg></div>
+
+      <!-- BACK OF FLAP -->
+      <div class="fb">
+        <svg viewBox="0 0 400 340" aria-hidden="true">
+          <defs>
+            <linearGradient id="flapBackGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#b6c7de"/>
+              <stop offset="50%" stop-color="#cad7e9"/>
+              <stop offset="100%" stop-color="#dee7f5"/>
+            </linearGradient>
+          </defs>
+          <use href="#flapContour" fill="url(#flapBackGrad)"/>
+          <use href="#flapContour" fill="url(#damaskPattern)" opacity="0.45"/>
+          <use href="#flapContour" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-opacity="0.9"/>
+          <g transform="translate(200 150) scale(0.93) translate(-200 -150)">
+            <use href="#flapContour" fill="none" stroke="#8397b2" stroke-width="1.8" stroke-dasharray="2 5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
     </div>
+
+    <!-- Designed By S.S.A text as in website -->
     <p class="by">Designed By S.S.A</p>
   </div>
 </div>
 
 <div class="amb" aria-hidden="true"><i class="gb"></i><i class="gb b"></i><div class="dust" id="dust"></div></div>
+<div class="nature-layer back" id="natureBack" aria-hidden="true"></div>
+<div class="nature-layer intro" id="natureIntro" aria-hidden="true"></div>
+<div class="nature-layer front" id="natureFront" aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="bfGold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#fff9db"/>
+        <stop offset="35%" stop-color="#f7d774"/>
+        <stop offset="75%" stop-color="#d49b35"/>
+        <stop offset="100%" stop-color="#8f5b14"/>
+      </linearGradient>
+      <linearGradient id="bfRose" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#fff5f7"/>
+        <stop offset="35%" stop-color="#f5c6d0"/>
+        <stop offset="75%" stop-color="#d9899c"/>
+        <stop offset="100%" stop-color="#8c4256"/>
+      </linearGradient>
+      <g id="wingL">
+        <!-- Forewing -->
+        <path d="M 50,52 C 36,18 6,6 2,24 C -2,40 14,56 32,60 C 42,62 48,56 50,52 Z" fill-opacity="0.88" stroke="#fff6cf" stroke-width="1.2"/>
+        <!-- Hindwing -->
+        <path d="M 50,54 C 34,58 14,68 16,84 C 18,96 34,96 43,82 C 48,74 50,62 50,54 Z" fill-opacity="0.82" stroke="#fff6cf" stroke-width="1"/>
+        <!-- Filigree inner veins -->
+        <path d="M 48,52 C 32,32 16,24 8,28 M 48,54 C 34,68 24,78 24,86" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.75"/>
+        <circle cx="14" cy="26" r="2.2" fill="#ffffff" fill-opacity="0.9"/>
+        <circle cx="24" cy="82" r="1.8" fill="#ffffff" fill-opacity="0.85"/>
+      </g>
+      <g id="wingR">
+        <!-- Forewing -->
+        <path d="M 0,52 C 14,18 44,6 48,24 C 52,40 36,56 18,60 C 8,62 2,56 0,52 Z" fill-opacity="0.88" stroke="#fff6cf" stroke-width="1.2"/>
+        <!-- Hindwing -->
+        <path d="M 0,54 C 16,58 36,68 34,84 C 32,96 16,96 7,82 C 2,74 0,62 0,54 Z" fill-opacity="0.82" stroke="#fff6cf" stroke-width="1"/>
+        <!-- Filigree inner veins -->
+        <path d="M 2,52 C 18,32 34,24 42,28 M 2,54 C 16,68 26,78 26,86" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.75"/>
+        <circle cx="36" cy="26" r="2.2" fill="#ffffff" fill-opacity="0.9"/>
+        <circle cx="26" cy="82" r="1.8" fill="#ffffff" fill-opacity="0.85"/>
+      </g>
+    </defs>
+  </svg>
+</div>
 
 <!-- PAGE 1 -->
 <main class="p1">
@@ -198,7 +527,7 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
           <g id="lp">
             <path d="M-5 0H5L8 8H-8Z" fill="#7a5a1c" stroke="url(#gl)" stroke-width="1.3"/>
             <path d="M-8 8C-19 15 -19 35 -6 45H6C19 35 19 15 8 8Z" fill="url(#lb)" stroke="url(#gl)" stroke-width="1.5"/>
-            <ellipse cx="0" cy="27" rx="4" ry="8" fill="#fff6c8"/>
+            <ellipse class="l-flame" cx="0" cy="27" rx="4.5" ry="8.5" fill="#fff8d4"/>
             <path d="M-5 14V40M0 11V44M5 14V40" stroke="#7a5a1c" stroke-width=".7" fill="none" opacity=".8"/>
             <path d="M-6 45L-3 51H3L6 45Z" fill="#7a5a1c" stroke="url(#gl)" stroke-width="1.2"/>
             <circle cy="54.5" r="2.2" fill="url(#gl)"/>
@@ -229,34 +558,35 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
     
     <p class="ar bism reveal" style="--d:.3s">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
     <p class="ar bism reveal" style="--d:.45s;font-size:1.3rem">اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَآلِ مُحَمَّدٍ</p>
-    <h1 class="title en gold reveal" style="--d:.6s">Walima</h1>
-    <p class="ur title-ur gold reveal" style="--d:.9s">دعوتِ ولیمہ</p>
-    <p class="en sub reveal" style="--d:1.2s">An invitation to the wedding feast</p>
+    <p class="ur reveal" style="--d:.6s;font-size:clamp(1.4rem,6vw,1.9rem);color:var(--gold2);line-height:2.2;margin:.25rem 0">زیرِ سرپرستیِ امامِ زمانہ (عج)</p>
+    <h1 class="title en gold reveal" style="--d:.75s">Walima</h1>
+    <p class="ur title-ur gold reveal" style="--d:1s">دعوتِ ولیمہ</p>
+    <p class="en sub reveal" style="--d:1.3s">An invitation to the wedding feast</p>
     <div class="hint reveal" style="--d:1.6s"><p class="en">Scroll</p><p class="ur">نیچے سکرول کریں</p><i class="arrow"></i></div>
   </section>
 
   <section class="scene">
     <p class="en sub reveal">With the blessings of Allah</p>
-    <p class="ur reveal" style="--d:.2s">اللہ کے فضل و کرم سے</p>
+    <p class="ur reveal" style="--d:.2s">اللّٰہ کے فضل و کرم سے</p>
     <div class="orn reveal" style="--d:.4s"></div>
     <h2 class="names en gold reveal" style="--d:.6s">Sayed Hasan Ali</h2>
     <p class="en sub reveal" style="--d:.7s">son of Sayed Tanveer Hasan</p>
     <p class="amp en reveal" style="--d:.8s">&amp;</p>
     <h2 class="names en gold reveal" style="--d:1s">Sadaf Fatema</h2>
-    <p class="en sub reveal" style="--d:1.1s">daughter of Mauzzam Husain<br>Lakshmi Nagar, New Delhi</p>
+    <p class="en sub reveal" style="--d:1.1s">daughter of Muazzam Husain<br>Lakshmi Nagar, New Delhi</p>
     <p class="names-ur ur gold reveal" style="--d:1.2s">سید حسن علی</p>
     <p class="ur sub reveal" style="--d:1.3s">فرزندِ سید تنویر حسن</p>
     <p class="names-ur ur gold reveal" style="--d:1.4s">صدف فاطمہ</p>
-    <p class="ur sub reveal" style="--d:1.5s">دخترِ معظم حسین · لکشمی نگر، نئی دہلی</p>
+    <p class="ur sub reveal" style="--d:1.5s">دخترِ معظم حسین، لکشمی نگر، نئی دہلی</p>
   </section>
 
   <section class="scene">
-    <p class="en reveal">In the love of Muhammad and Aale Muhammad (a.s.), the families of Sayed Tanveer Hasan and Mauzzam Husain warmly invite you to the Dawat-e-Walima of their children.</p>
-    <p class="ur reveal" style="--d:.3s">محمد و آلِ محمد علیہم السلام کی محبت میں، سید تنویر حسن اور معظم حسین کے اہلِ خانہ اپنے بچوں کی دعوتِ ولیمہ میں آپ کو دلی دعوت دیتے ہیں۔</p>
+    <p class="en reveal">In the love of Muhammad and Aale Muhammad (a.s.), the family of Sayed Tanveer Hasan warmly invites you to the Dawat-e-Walima of their children.</p>
+    <p class="ur reveal" style="--d:.3s">محمد و آلِ محمد علیہم السلام کی محبت میں، سید تنویر حسن کے اہلِ خانہ اپنے بچوں کی دعوتِ ولیمہ میں آپ کو دلی دعوت دیتے ہیں۔</p>
     <div class="orn reveal" style="--d:.6s"></div>
     <p class="ar bism reveal" style="--d:.8s">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
     <p class="en sub reveal" style="--d:1s">May Allah bless you both, shower blessings upon you, and unite you in goodness.</p>
-    <p class="ur sub reveal" style="--d:1.2s">اللہ تم دونوں کو برکت دے اور خیر میں جمع رکھے۔</p>
+    <p class="ur sub reveal" style="--d:1.2s">اللّٰہ تم دونوں کو برکت دے اور خیر میں جمع رکھے۔</p>
   </section>
 
   <section class="scene">
@@ -271,19 +601,16 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
   <h2 class="h2 en gold reveal">Save the Date</h2>
   <p class="h2-ur ur gold reveal" style="--d:.2s">تاریخ یاد رکھیں</p>
 
-  <p class="en sub reveal" style="--d:.3s;margin-top:1rem">On the blessed occasion of the Wiladat of Imam Zain-ul-Abidin (a.s.)</p>
-  <p class="ur sub reveal" style="--d:.4s">امام زین العابدین علیہ السلام کی ولادتِ باسعادت کے مبارک موقع پر</p>
-
   <div class="details">
     <div class="det reveal">
       <h3 class="en">Date</h3><p class="ur">تاریخ</p>
-      <p class="v en">Thursday, 14 January 2027<br>5 Shaban 1448 AH</p>
-      <p class="v ur">جمعرات، ۱۴ جنوری ۲۰۲۷<br>۵ شعبان ۱۴۴۸ ہجری</p>
+      <p class="v en">Friday, <span class="clear-num">15</span> January <span class="clear-num">2027</span><br><span class="clear-num">6</span> Shaban <span class="clear-num">1448</span> AH</p>
+      <p class="v ur">جمعہ، ۱۵ جنوری ۲۰۲۷<br>۶ شعبان ۱۴۴۸ ہجری</p>
     </div>
     <div class="det reveal" style="--d:.2s">
       <h3 class="en">Time</h3><p class="ur">وقت</p>
-      <p class="v en">7:00 PM onwards</p>
-      <p class="v ur">شام ۷ بجے سے</p>
+      <p class="v en"><span class="clear-num">1:00</span> PM onwards<br>(Afternoon)</p>
+      <p class="v ur">دوپہر &nbsp;۱&nbsp; بجے سے</p>
     </div>
     <div class="det reveal" style="--d:.4s">
       <h3 class="en">Venue</h3><p class="ur">مقام</p>
@@ -301,7 +628,7 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
       <div><b id="m">00</b><span class="en">Minutes</span><span class="ur">منٹ</span></div>
       <div><b id="s">00</b><span class="en">Seconds</span><span class="ur">سیکنڈ</span></div>
     </div>
-    <p class="done en" id="done">Alhamdulillah, today is the day!<br><span class="ur">الحمدللہ، آج وہ دن ہے!</span></p>
+    <p class="done en" id="done">Alhamdulillah, today is the day!<br><span class="ur">الحمد للّٰہ، آج وہ دن ہے!</span></p>
   </div>
 
   <a class="btn en reveal" id="rsvp" href="#">Confirm your attendance · تصدیق کریں</a>
@@ -310,32 +637,25 @@ body.lock{overflow:hidden;height:100vh;height:100svh}
     <div class="orn"></div>
     <p class="en">With love and duas,</p>
     <p class="ur">دعاؤں کے طلبگار</p>
-    <p class="en gold" style="font-size:1.8rem">Sayed Tanveer Hasan<br>&amp; family</p>
-    <p class="ur gold" style="font-size:1.3rem">سید تنویر حسن اور اہل خانہ</p>
+    <p class="en gold" style="font-size:1.8rem">Family, Relatives<br>&amp; Dear Ones</p>
+    <p class="ur gold" style="font-size:1.35rem">اہلِ خانہ و عزیز و اقارب</p>
+  </div>
+
+  <div class="ssa-sig" id="ssaSig" aria-label="Design by S.S.A">
+    <span class="ssa-txt">Design by S.S.A</span>
+    <i class="ssa-pen" aria-hidden="true"></i>
+    <div class="ssa-sp" id="ssaSp" aria-hidden="true"></div>
   </div>
 </section>
 
 <script>
 // ---- Edit these two values ----
-const EVENT_TIME = '2027-01-14T19:00:00+05:30'; // date and time of the Walima
+const EVENT_TIME = '2027-01-15T13:00:00+05:30'; // date and time of the Walima
 const WHATSAPP = ''; // e.g. '919876543210'. Leave empty to hide the confirm button.
 
 
-// Safari/device fallback: if IntersectionObserver is unavailable, show all text.
-const io = ('IntersectionObserver' in window)
-  ? new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    }), {threshold: .15})
-  : null;
-const startReveals = () => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    if (io) io.observe(el);
-    else el.classList.add('in');
-  });
-};
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.25});
+const startReveals = () => document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 const dust = document.getElementById('dust');
 for (let i = 0; i < 18; i++) {
@@ -348,7 +668,7 @@ const T = new Date(EVENT_TIME).getTime();
 const $ = id => document.getElementById(id);
 function count() {
   const left = T - Date.now();
-  if (left <= 0) { $('cd').style.display = 'none'; $('done').style.display = 'block'; return; }
+  if (left <= 0) { $('d').textContent = '00'; $('h').textContent = '00'; $('m').textContent = '00'; $('s').textContent = '00'; $('done').style.display = 'block'; return; }
   const t = Math.floor(left / 1000), p = n => String(n).padStart(2, '0');
   $('d').textContent = p(Math.floor(t / 86400));
   $('h').textContent = p(Math.floor(t % 86400 / 3600));
@@ -365,16 +685,288 @@ for (let i = 0; i < 24; i++) {
   s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;animation-delay:${-Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
   spEl.appendChild(s);
 }
+function makeButterflyEl(sz, flap, isGold) {
+  const wrap = document.createElement('div');
+  wrap.className = 'bfly-mover';
+  const grad = isGold ? 'url(#bfGold)' : 'url(#bfRose)';
+  wrap.style.setProperty('--sz', sz.toFixed(0) + 'px');
+  wrap.style.setProperty('--fl', flap);
+  wrap.innerHTML = `<div class="bfly-3d"><div class="bfly-wing L"><svg viewBox="0 0 50 100"><use href="#wingL" fill="${grad}"/></svg></div><div class="bfly-wing R"><svg viewBox="0 0 50 100"><use href="#wingR" fill="${grad}"/></svg></div><i class="bfly-body"></i></div>`;
+  return wrap;
+}
+
+// ---- Entrance Butterflies flying into Main Page on Tap ----
+function spawnEntranceButterflies() {
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const introLayer = document.getElementById('natureIntro');
+  if (!introLayer) return;
+  const W = innerWidth, H = innerHeight;
+  const cx = W * 0.5, cy = H * 0.52;
+  const count = 14;
+  const flyers = [];
+  for (let i = 0; i < count; i++) {
+    const sz = 26 + (i % 4) * 5;
+    const flap = (0.13 + (i % 3) * 0.03).toFixed(2) + 's';
+    const el = makeButterflyEl(sz, flap, i % 2 === 0);
+    el.style.opacity = '0';
+    introLayer.appendChild(el);
+    // Fan out in all directions and spiral into the main page
+    const baseAng = -Math.PI / 2 + ((i - (count - 1) / 2) / count) * Math.PI * 1.65 + (Math.random() - 0.5) * 0.25;
+    flyers.push({
+      el,
+      delay: i * 55 + Math.random() * 60,
+      dur: 1750 + Math.random() * 450,
+      x0: cx + (Math.random() - 0.5) * 36,
+      y0: cy + (Math.random() - 0.5) * 24,
+      ang: baseAng,
+      curve: (i % 2 === 0 ? 1 : -1) * (0.45 + Math.random() * 0.55),
+      dist: Math.max(W, H) * (0.42 + Math.random() * 0.36),
+      zPeak: 120 + Math.random() * 140
+    });
+  }
+  const tStart = performance.now();
+  function stepIntro(now) {
+    let alive = false;
+    for (let i = 0; i < flyers.length; i++) {
+      const f = flyers[i];
+      const elapsed = now - tStart - f.delay;
+      if (elapsed < 0) { alive = true; continue; }
+      const p = elapsed / f.dur;
+      if (p >= 1) {
+        if (f.el.parentNode) f.el.remove();
+        continue;
+      }
+      alive = true;
+      // Smooth ease-out cubic progress
+      const ease = 1 - Math.pow(1 - p, 2.4);
+      const curAng = f.ang + f.curve * Math.sin(p * Math.PI);
+      const r = f.dist * ease;
+      const x = f.x0 + Math.cos(curAng) * r;
+      const y = f.y0 + Math.sin(curAng) * r - Math.sin(p * Math.PI) * 45;
+      const z = Math.sin(p * Math.PI) * f.zPeak;
+      const sc = 0.35 + Math.sin(p * Math.PI) * 0.95 + p * 0.35;
+      // Velocity tangent for realistic heading
+      const dx = Math.cos(curAng) * f.dist - Math.sin(curAng) * r * f.curve * Math.cos(p * Math.PI);
+      const dy = Math.sin(curAng) * f.dist + Math.cos(curAng) * r * f.curve * Math.cos(p * Math.PI) - 45 * Math.cos(p * Math.PI);
+      const deg = (Math.atan2(dy, dx) * 180 / Math.PI) + 90;
+      const op = p < 0.12 ? p / 0.12 : (p > 0.78 ? (1 - p) / 0.22 : 1);
+      f.el.style.opacity = op.toFixed(2);
+      f.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${deg.toFixed(1)}deg) scale(${sc.toFixed(2)})`;
+    }
+    if (alive) requestAnimationFrame(stepIntro);
+    else introLayer.remove();
+  }
+  requestAnimationFrame(stepIntro);
+}
+
 function openEnv() {
   if (envEl.classList.contains('open')) return;
   envEl.classList.add('open');
-  setTimeout(() => { envEl.classList.add('go'); start(); }, 1300);
-  setTimeout(() => { envEl.remove(); document.body.classList.remove('lock'); }, 2700);
+  // 1) Launch 3D butterflies entering the main page as the flap opens
+  setTimeout(spawnEntranceButterflies, 240);
+  // 2) Fade out envelope to reveal main page while butterflies enter
+  setTimeout(() => {
+    envEl.classList.add('go');
+    startNature3D();
+  }, 950);
+  // 3) Once butterflies enter the main page, trigger Mehrab arch & Lamp lights animation
+  setTimeout(() => {
+    document.getElementById('mh').classList.add('on');
+    document.body.classList.remove('lock');
+  }, 1750);
+  // 4) After Mehrab draws and lamp lights ignite, reveal the main page text
+  setTimeout(() => {
+    startReveals();
+    sigObserver.observe(ssaSig);
+  }, 3650);
+  setTimeout(() => { envEl.remove(); }, 2300);
 }
-envEl.addEventListener('click', openEnv);
-envEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnv(); } });
+let opened = false;
+function triggerOpen(e) {
+  if (e && e.type === 'touchend') e.preventDefault();
+  if (opened) return;
+  opened = true;
+  openEnv();
+}
+envEl.addEventListener('click', triggerOpen);
+envEl.addEventListener('touchend', triggerOpen, { passive: false });
+envEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); triggerOpen(e); } });
 
-function start() { startReveals(); document.getElementById('mh').classList.add('on'); }
+// ---- Silver glitter writing signature on last page ----
+const ssaSig = document.getElementById('ssaSig'), ssaSp = document.getElementById('ssaSp');
+for (let i = 0; i < 16; i++) {
+  const st = document.createElement('i'), sz = 6 + Math.random() * 8;
+  st.style.cssText = `left:${6 + Math.random() * 88}%;top:${12 + Math.random() * 76}%;width:${sz}px;height:${sz}px;animation-delay:${(i * 0.14 + Math.random() * 0.5).toFixed(2)}s;animation-duration:${(1.3 + Math.random() * 1.2).toFixed(2)}s`;
+  ssaSp.appendChild(st);
+}
+const sigObserver = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    ssaSig.classList.add('write');
+    const rect = ssaSig.getBoundingClientRect();
+    let step = 0;
+    const burst = setInterval(() => {
+      step++;
+      if (step > 18) { clearInterval(burst); return; }
+      const b = document.createElement('i'), z = 8 + Math.random() * 9;
+      b.style.cssText = `left:${(step / 18) * 94 + (Math.random() * 6 - 3)}%;top:${30 + Math.random() * 40}%;width:${z}px;height:${z}px;animation:ssaTwinkle .85s ease-out forwards`;
+      b.addEventListener('animationend', () => b.remove(), { once: true });
+      ssaSp.appendChild(b);
+    }, 135);
+    sigObserver.unobserve(e.target);
+  }
+}), { threshold: 0.4 });
+
+// ---- 3D Glowworms (Flies) & 3D Fluttering Butterflies moving BEHIND and IN FRONT of text ----
+let natureStarted = false;
+function startNature3D() {
+  if (natureStarted || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  natureStarted = true;
+  const nBack = document.getElementById('natureBack');
+  const nFront = document.getElementById('natureFront');
+  const gwList = [], bfList = [];
+  const gwCount = 20, bfCount = 8;
+
+  // Create 3D Glowworms / Flies (half behind text, half in front of text, weaving in 3D depth)
+  for (let i = 0; i < gwCount; i++) {
+    const el = document.createElement('i');
+    el.className = 'glowworm';
+    const sz = 4 + Math.random() * 6.5;
+    el.style.width = sz + 'px';
+    el.style.height = sz + 'px';
+    el.style.setProperty('--p', (2.0 + Math.random() * 2.6).toFixed(2) + 's');
+    el.style.animationDelay = (-Math.random() * 4).toFixed(2) + 's';
+    const isFront = i % 2 === 0;
+    (isFront ? nFront : nBack).appendChild(el);
+    gwList.push({
+      el,
+      layer: isFront ? 'front' : 'back',
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight,
+      vx: (Math.random() - 0.5) * 0.65,
+      vy: (Math.random() - 0.5) * 0.55 - 0.1,
+      ang: Math.random() * Math.PI * 2,
+      zPhase: isFront ? (Math.random() * Math.PI) : (Math.PI + Math.random() * Math.PI),
+      zSpeed: 0.008 + Math.random() * 0.012
+    });
+  }
+
+  // Create 3D Fluttering Butterflies (weaving in 3D both BEHIND text and IN FRONT of text)
+  for (let i = 0; i < bfCount; i++) {
+    const sz = 25 + Math.random() * 14;
+    const flap = (0.17 + Math.random() * 0.11).toFixed(2) + 's';
+    const wrap = makeButterflyEl(sz, flap, i % 2 === 0);
+    const inner3d = wrap.firstElementChild;
+    const isFront = i % 2 === 0;
+    (isFront ? nFront : nBack).appendChild(wrap);
+    bfList.push({
+      el: wrap,
+      inner3d,
+      layer: isFront ? 'front' : 'back',
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight,
+      ang: Math.random() * Math.PI * 2,
+      targetAng: Math.random() * Math.PI * 2,
+      speed: 0.72 + Math.random() * 0.55,
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: 0.032 + Math.random() * 0.025,
+      zPhase: isFront ? (Math.random() * Math.PI) : (Math.PI + Math.random() * Math.PI),
+      zSpeed: 0.007 + Math.random() * 0.009,
+      baseScale: 0.82 + Math.random() * 0.28
+    });
+  }
+
+  function stepNature() {
+    const W = innerWidth, H = innerHeight, pad = 48;
+    // Update 3D Glowworms / Flies
+    for (let i = 0; i < gwList.length; i++) {
+      const g = gwList[i];
+      g.ang += (Math.random() - 0.5) * 0.09;
+      // Gently pull glowing flies back toward the central text zone when near edges
+      if (g.x < W * 0.14 || g.x > W * 0.86 || g.y < H * 0.14 || g.y > H * 0.86) {
+        const toCenter = Math.atan2(H * 0.5 - g.y, W * 0.5 - g.x);
+        g.vx += Math.cos(toCenter) * 0.012;
+        g.vy += Math.sin(toCenter) * 0.012;
+      }
+      g.vx += Math.cos(g.ang) * 0.018;
+      g.vy += Math.sin(g.ang) * 0.018;
+      const sp = Math.hypot(g.vx, g.vy);
+      if (sp > 0.85) { g.vx = (g.vx / sp) * 0.85; g.vy = (g.vy / sp) * 0.85; }
+      g.x += g.vx;
+      g.y += g.vy;
+      g.zPhase += g.zSpeed;
+      const sinZ = Math.sin(g.zPhase);
+      const sc = g.layer === 'front' ? (1.0 + Math.max(0, sinZ) * 0.45) : (0.58 + (1 + sinZ) * 0.22);
+
+      if (g.x < -20) g.x = W + 20;
+      else if (g.x > W + 20) g.x = -20;
+      if (g.y < -20) g.y = H + 20;
+      else if (g.y > H + 20) g.y = -20;
+
+      // Swap between behind-text and in-front-of-text layers when near screen margins
+      const nearEdge = (g.x < W * 0.16 || g.x > W * 0.84 || g.y < H * 0.12 || g.y > H * 0.88);
+      if (nearEdge) {
+        if (sinZ >= 0 && g.layer !== 'front') { nFront.appendChild(g.el); g.layer = 'front'; }
+        else if (sinZ < 0 && g.layer !== 'back') { nBack.appendChild(g.el); g.layer = 'back'; }
+      }
+      g.el.style.transform = `translate3d(${g.x.toFixed(1)}px,${g.y.toFixed(1)}px,0) scale(${sc.toFixed(2)})`;
+    }
+
+    // Update 3D Butterflies
+    for (let i = 0; i < bfList.length; i++) {
+      const b = bfList[i];
+      if (Math.random() < 0.022) {
+        b.targetAng += (Math.random() - 0.5) * 1.75;
+      }
+      // When near screen margins, smoothly curve back across the central text area and swap 3D depth layer
+      const inOuterMargin = (b.x < W * 0.14 || b.x > W * 0.86 || b.y < H * 0.12 || b.y > H * 0.88);
+      if (inOuterMargin) {
+        const aimX = W * (0.32 + (i % 3) * 0.18);
+        const aimY = H * (0.28 + ((i * 2) % 3) * 0.22);
+        b.targetAng = Math.atan2(aimY - b.y, aimX - b.x) + (Math.random() - 0.5) * 0.35;
+      }
+
+      let diff = b.targetAng - b.ang;
+      while (diff > Math.PI) diff -= Math.PI * 2;
+      while (diff < -Math.PI) diff += Math.PI * 2;
+      b.ang += diff * 0.038;
+      b.wobble += b.wobbleSpeed;
+      b.zPhase += b.zSpeed;
+
+      const sinZ = Math.sin(b.zPhase);
+      const cosZ = Math.cos(b.zPhase);
+      // Scale responds to 3D Z depth (smaller when behind text, larger when closer in front of text)
+      const depthScale = b.layer === 'front' ? (0.98 + Math.max(0, sinZ) * 0.38) : (0.60 + (1 + sinZ) * 0.22);
+      const sc = b.baseScale * depthScale;
+
+      const curAngle = b.ang + Math.sin(b.wobble) * 0.28;
+      b.x += Math.cos(curAngle) * b.speed * (0.85 + depthScale * 0.25);
+      b.y += Math.sin(curAngle) * b.speed * (0.85 + depthScale * 0.25);
+
+      let wrapped = false;
+      if (b.x < -pad) { b.x = W + pad; wrapped = true; }
+      else if (b.x > W + pad) { b.x = -pad; wrapped = true; }
+      if (b.y < -pad) { b.y = H + pad; wrapped = true; }
+      else if (b.y > H + pad) { b.y = -pad; wrapped = true; }
+
+      // Seamlessly transition between behind-text (#natureBack) and front-of-text (#natureFront) when wrapping or in outer margins
+      if (wrapped || inOuterMargin) {
+        if (sinZ >= 0 && b.layer !== 'front') { nFront.appendChild(b.el); b.layer = 'front'; }
+        else if (sinZ < 0 && b.layer !== 'back') { nBack.appendChild(b.el); b.layer = 'back'; }
+      }
+
+      // 3D pitch & roll banking angles based on turn rate and depth climb
+      const rx = 28 + cosZ * 18;
+      const ry = Math.max(-42, Math.min(42, diff * 32));
+      b.inner3d.style.setProperty('--rx', rx.toFixed(1) + 'deg');
+      b.inner3d.style.setProperty('--ry', ry.toFixed(1) + 'deg');
+
+      const deg = (curAngle * 180 / Math.PI) + 90;
+      b.el.style.transform = `translate3d(${b.x.toFixed(1)}px,${b.y.toFixed(1)}px,0) rotate(${deg.toFixed(1)}deg) scale(${sc.toFixed(2)})`;
+    }
+    requestAnimationFrame(stepNature);
+  }
+  requestAnimationFrame(stepNature);
+}
 
 // ---- Touch glitter (about 0.5-1 cm sparkles) ----
 if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
